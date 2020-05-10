@@ -7,7 +7,31 @@
 //
 
 import Foundation
+import UIKit
 
 class LoginRouter: LoginRouterProtocol {
+    
+    var baseViewController: UIViewController?
+    
+    func routeToMainScreen() {
+        let rootNav = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RootNavController")
+        rootNav.modalPresentationStyle = .fullScreen
+        rootNav.modalTransitionStyle = .crossDissolve
+        baseViewController?.present(rootNav, animated: true, completion: nil)
+    }
+}
+extension LoginRouterProtocol {
+    static func createLoginView() -> LoginViewController? {
+        let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController")  as? LoginViewController
+        let presenter = LoginPresenter()
+        let interactor = LoginInteractor()
+        let router = LoginRouter()
+        router.baseViewController = loginVC
+        presenter.interactor = interactor
+        presenter.router = router
+        loginVC?.presenter = presenter
+        presenter.view = loginVC
+        return loginVC
+    }
     
 }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol LoginViewProtocol: class {
     func updateLoading(hide: Bool)
@@ -24,6 +25,7 @@ protocol LoginInteractorProtocol: class {
 }
 
 protocol LoginRouterProtocol: class {
+    var baseViewController: UIViewController? {get set}
+    func routeToMainScreen()
+    static func createLoginView() -> LoginViewController? 
 }
-
-

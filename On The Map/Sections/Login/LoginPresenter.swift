@@ -37,8 +37,7 @@ class LoginPresenter: LoginPresenterProtocol {
         view?.updateView(true)
         switch result {
         case .success(let response):
-            print("Login Success!! \(response.session.id)")
-            
+            router?.routeToMainScreen()
         case .failure(let error):
             view?.updateErrorText(text: error.localizedDescription)
         }
