@@ -9,12 +9,15 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-
+    var presenter: LoginPresenterProtocol!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
-
 }
 
+extension LoginViewController: LoginViewProtocol {
+    
+}

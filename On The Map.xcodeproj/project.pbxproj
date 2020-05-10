@@ -13,6 +13,10 @@
 		372A069124676746001EC163 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 372A068F24676746001EC163 /* Main.storyboard */; };
 		372A06932467674B001EC163 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 372A06922467674B001EC163 /* Assets.xcassets */; };
 		372A06962467674B001EC163 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 372A06942467674B001EC163 /* LaunchScreen.storyboard */; };
+		372A06A024677863001EC163 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372A069F24677863001EC163 /* LoginPresenter.swift */; };
+		372A06A2246779AA001EC163 /* LoginProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372A06A1246779AA001EC163 /* LoginProtocols.swift */; };
+		372A06A524677CC5001EC163 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372A06A424677CC5001EC163 /* LoginRouter.swift */; };
+		372A06A724677CD4001EC163 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372A06A624677CD4001EC163 /* LoginInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		372A06922467674B001EC163 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		372A06952467674B001EC163 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		372A06972467674B001EC163 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		372A069F24677863001EC163 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		372A06A1246779AA001EC163 /* LoginProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProtocols.swift; sourceTree = "<group>"; };
+		372A06A424677CC5001EC163 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
+		372A06A624677CD4001EC163 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +64,43 @@
 		372A068824676746001EC163 /* On The Map */ = {
 			isa = PBXGroup;
 			children = (
+				372A06A324677A7C001EC163 /* New Group */,
+				372A069D24677841001EC163 /* Sections */,
 				372A068924676746001EC163 /* AppDelegate.swift */,
 				372A068B24676746001EC163 /* SceneDelegate.swift */,
-				372A068D24676746001EC163 /* LoginViewController.swift */,
 				372A068F24676746001EC163 /* Main.storyboard */,
 				372A06922467674B001EC163 /* Assets.xcassets */,
 				372A06942467674B001EC163 /* LaunchScreen.storyboard */,
 				372A06972467674B001EC163 /* Info.plist */,
 			);
 			path = "On The Map";
+			sourceTree = "<group>";
+		};
+		372A069D24677841001EC163 /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				372A069E24677849001EC163 /* Login */,
+			);
+			path = Sections;
+			sourceTree = "<group>";
+		};
+		372A069E24677849001EC163 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				372A068D24676746001EC163 /* LoginViewController.swift */,
+				372A069F24677863001EC163 /* LoginPresenter.swift */,
+				372A06A624677CD4001EC163 /* LoginInteractor.swift */,
+				372A06A424677CC5001EC163 /* LoginRouter.swift */,
+				372A06A1246779AA001EC163 /* LoginProtocols.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		372A06A324677A7C001EC163 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +174,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				372A06A024677863001EC163 /* LoginPresenter.swift in Sources */,
 				372A068E24676746001EC163 /* LoginViewController.swift in Sources */,
+				372A06A724677CD4001EC163 /* LoginInteractor.swift in Sources */,
+				372A06A524677CC5001EC163 /* LoginRouter.swift in Sources */,
 				372A068A24676746001EC163 /* AppDelegate.swift in Sources */,
 				372A068C24676746001EC163 /* SceneDelegate.swift in Sources */,
+				372A06A2246779AA001EC163 /* LoginProtocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
