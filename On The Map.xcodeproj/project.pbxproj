@@ -17,6 +17,11 @@
 		372A06A2246779AA001EC163 /* LoginProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372A06A1246779AA001EC163 /* LoginProtocols.swift */; };
 		372A06A524677CC5001EC163 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372A06A424677CC5001EC163 /* LoginRouter.swift */; };
 		372A06A724677CD4001EC163 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372A06A624677CD4001EC163 /* LoginInteractor.swift */; };
+		374276A824678A6C00E2A635 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374276A724678A6C00E2A635 /* Constants.swift */; };
+		374276AA2467908C00E2A635 /* LoginResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374276A92467908C00E2A635 /* LoginResponses.swift */; };
+		374276AD246793D400E2A635 /* OTMAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374276AC246793D400E2A635 /* OTMAPIClient.swift */; };
+		374276B0246795F200E2A635 /* LoginRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374276AF246795F200E2A635 /* LoginRequests.swift */; };
+		374276B224679D8000E2A635 /* NetworkingModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374276B124679D8000E2A635 /* NetworkingModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +37,11 @@
 		372A06A1246779AA001EC163 /* LoginProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProtocols.swift; sourceTree = "<group>"; };
 		372A06A424677CC5001EC163 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		372A06A624677CD4001EC163 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
+		374276A724678A6C00E2A635 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		374276A92467908C00E2A635 /* LoginResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponses.swift; sourceTree = "<group>"; };
+		374276AC246793D400E2A635 /* OTMAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTMAPIClient.swift; sourceTree = "<group>"; };
+		374276AF246795F200E2A635 /* LoginRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequests.swift; sourceTree = "<group>"; };
+		374276B124679D8000E2A635 /* NetworkingModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +74,8 @@
 		372A068824676746001EC163 /* On The Map */ = {
 			isa = PBXGroup;
 			children = (
-				372A06A324677A7C001EC163 /* New Group */,
+				374276AB246793B600E2A635 /* Networking */,
+				372A06A324677A7C001EC163 /* Utils */,
 				372A069D24677841001EC163 /* Sections */,
 				372A068924676746001EC163 /* AppDelegate.swift */,
 				372A068B24676746001EC163 /* SceneDelegate.swift */,
@@ -87,6 +98,7 @@
 		372A069E24677849001EC163 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				374276AE246795CD00E2A635 /* Models */,
 				372A068D24676746001EC163 /* LoginViewController.swift */,
 				372A069F24677863001EC163 /* LoginPresenter.swift */,
 				372A06A624677CD4001EC163 /* LoginInteractor.swift */,
@@ -96,11 +108,38 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		372A06A324677A7C001EC163 /* New Group */ = {
+		372A06A324677A7C001EC163 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				374276B324679DA600E2A635 /* Extensions */,
+				374276A724678A6C00E2A635 /* Constants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		374276AB246793B600E2A635 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				374276AC246793D400E2A635 /* OTMAPIClient.swift */,
+				374276B124679D8000E2A635 /* NetworkingModels.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		374276AE246795CD00E2A635 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				374276A92467908C00E2A635 /* LoginResponses.swift */,
+				374276AF246795F200E2A635 /* LoginRequests.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		374276B324679DA600E2A635 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = "New Group";
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,12 +214,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				372A06A024677863001EC163 /* LoginPresenter.swift in Sources */,
+				374276AD246793D400E2A635 /* OTMAPIClient.swift in Sources */,
 				372A068E24676746001EC163 /* LoginViewController.swift in Sources */,
 				372A06A724677CD4001EC163 /* LoginInteractor.swift in Sources */,
+				374276AA2467908C00E2A635 /* LoginResponses.swift in Sources */,
+				374276B224679D8000E2A635 /* NetworkingModels.swift in Sources */,
+				374276B0246795F200E2A635 /* LoginRequests.swift in Sources */,
 				372A06A524677CC5001EC163 /* LoginRouter.swift in Sources */,
 				372A068A24676746001EC163 /* AppDelegate.swift in Sources */,
 				372A068C24676746001EC163 /* SceneDelegate.swift in Sources */,
 				372A06A2246779AA001EC163 /* LoginProtocols.swift in Sources */,
+				374276A824678A6C00E2A635 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,6 +371,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7L49BZZ75Y;
 				INFOPLIST_FILE = "On The Map/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -345,6 +390,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7L49BZZ75Y;
 				INFOPLIST_FILE = "On The Map/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
