@@ -15,6 +15,7 @@ protocol ViewControllersFactoryProtocol {
     func createTabsView() -> TabsViewController?
     func createListView() -> LocationListViewController?
     func createMapView() -> MapViewController?
+    func createMainScreen() -> UIViewController?
 }
 
 struct ViewControllersFactory: ViewControllersFactoryProtocol {
@@ -73,5 +74,21 @@ struct ViewControllersFactory: ViewControllersFactoryProtocol {
             return nil
         }
         return viewCreated
+    }
+    
+    func createMainScreen() -> UIViewController? {
+        guard let tabView = createTabsView(),
+            let rootnavBar = createRootNavView(),
+            let mapViewController = createMapView(),
+            let listViewController = createListView() else {
+            return nil
+        }
+        rootnavBar.viewControllers = [tabView]
+        tabView.viewControllers = [mapViewController, listViewController]
+        mapViewController.tabBarItem.selectedImage = UIImage(named: "mapview_selected_icon")
+        mapViewController.tabBarItem.image = UIImage(named: "mapview_deselected_icon")
+        listViewController.tabBarItem.selectedImage = UIImage(named: "listview-selected_icon")
+        listViewController.tabBarItem.image = UIImage(named: "listview-deselected_icon")
+        return rootnavBar
     }
 }

@@ -15,18 +15,9 @@ class LoginRouter: LoginRouterProtocol {
     var viewFactory: ViewControllersFactoryProtocol!
     
     func routeToMainScreen() {
-        guard let tabView = viewFactory.createTabsView(),
-            let rootnavBar = viewFactory.createRootNavView(),
-            let mapViewController = viewFactory.createMapView(),
-            let listViewController = viewFactory.createListView() else {
+        guard let rootnavBar = viewFactory.createMainScreen() else {
             return
         }
-        rootnavBar.viewControllers = [tabView]
-        tabView.viewControllers = [mapViewController, listViewController]
-        mapViewController.tabBarItem.selectedImage = UIImage(named: "mapview_selected_icon")
-        mapViewController.tabBarItem.image = UIImage(named: "mapview_deselected_icon")
-        listViewController.tabBarItem.selectedImage = UIImage(named: "listview-selected_icon")
-        listViewController.tabBarItem.image = UIImage(named: "listview-deselected_icon")
         baseViewController?.present(rootnavBar, animated: true, completion: nil)
     }
     
