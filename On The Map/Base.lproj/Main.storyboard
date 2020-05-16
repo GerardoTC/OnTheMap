@@ -163,7 +163,7 @@
             </objects>
             <point key="canvasLocation" x="1533" y="153"/>
         </scene>
-        <!--Item 2-->
+        <!--View Controller-->
         <scene sceneID="9Ml-aT-uFY">
             <objects>
                 <viewController id="d1w-9X-VB3" sceneMemberID="viewController">
@@ -173,13 +173,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="S8c-mK-XuX"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="C6i-G4-Ksj"/>
+                    <tabBarItem key="tabBarItem" title="" image="listview-deselected_icon" selectedImage="listview-selected_icon" id="C6i-G4-Ksj"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zkM-fd-kRK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3386" y="523"/>
         </scene>
-        <!--Item 1-->
+        <!--View Controller-->
         <scene sceneID="Ap0-0S-bPS">
             <objects>
                 <viewController id="QoX-NP-8NP" sceneMemberID="viewController">
@@ -189,16 +189,18 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="8wg-2F-hoZ"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="hsh-UI-Bgs"/>
+                    <tabBarItem key="tabBarItem" title="" image="mapview_deselected_icon" selectedImage="mapview_selected_icon" id="hsh-UI-Bgs">
+                        <color key="badgeColor" red="0.0002627525162" green="0.35283859090000003" blue="0.54660402789999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1dP-WK-B5K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3386" y="-188"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tabs View Controller-->
         <scene sceneID="2KX-Ms-hxT">
             <objects>
-                <tabBarController id="sn8-YM-OJc" sceneMemberID="viewController">
+                <tabBarController id="sn8-YM-OJc" customClass="TabsViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="yAh-tB-rJ1"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lcE-gG-PXg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -216,6 +218,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="listview-deselected_icon" width="75" height="50"/>
+        <image name="listview-selected_icon" width="75" height="50"/>
+        <image name="mapview_deselected_icon" width="75" height="50"/>
+        <image name="mapview_selected_icon" width="75" height="50"/>
         <image name="udacity_logo" width="62" height="62"/>
     </resources>
 </document>
