@@ -34,6 +34,7 @@ extension LoginViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
+        hideKeyBoardOnTapOutside()
     }
 }
 

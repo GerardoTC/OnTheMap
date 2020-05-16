@@ -12,13 +12,13 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
+    var viewFactory: ViewControllersFactoryProtocol = ViewControllersFactory()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         
-        window?.rootViewController = LoginRouter.createLoginView()
+        window?.rootViewController = viewFactory.createLoginView()
         window?.makeKeyAndVisible()
         return true
     }

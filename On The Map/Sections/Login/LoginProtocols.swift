@@ -28,7 +28,6 @@ protocol LoginInteractorProtocol: class {
 
 protocol LoginRouterProtocol: class {
     var baseViewController: UIViewController? {get set}
-    func routeToMainScreen()
-    static func createLoginView() -> LoginViewController?
+    func routeToMainScreen() 
     func signUp()
 }

@@ -12,21 +12,22 @@ import UIKit
 class LoginRouter: LoginRouterProtocol {
     
     var baseViewController: UIViewController?
+    var viewFactory: ViewControllersFactoryProtocol!
     
     func routeToMainScreen() {
-        guard let rootNav = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RootNavController") as? UINavigationController else {
+        guard let tabView = viewFactory.createTabsView(),
+            let rootnavBar = viewFactory.createRootNavView(),
+            let mapViewController = viewFactory.createMapView(),
+            let listViewController = viewFactory.createListView() else {
             return
         }
-        rootNav.modalPresentationStyle = .fullScreen
-        rootNav.modalTransitionStyle = .crossDissolve
-        let tabBarVC = rootNav.viewControllers.first as? TabsViewController
-        let router = TabsRouter()
-        router.baseViewController = rootNav
-        let presenter = TabsPresenter()
-        presenter.view = tabBarVC
-        presenter.router = router
-        tabBarVC?.presenter = presenter
-        baseViewController?.present(rootNav, animated: true, completion: nil)
+        rootnavBar.viewControllers = [tabView]
+        tabView.viewControllers = [mapViewController, listViewController]
+        mapViewController.tabBarItem.selectedImage = UIImage(named: "mapview_selected_icon")
+        mapViewController.tabBarItem.image = UIImage(named: "mapview_deselected_icon")
+        listViewController.tabBarItem.selectedImage = UIImage(named: "listview-selected_icon")
+        listViewController.tabBarItem.image = UIImage(named: "listview-deselected_icon")
+        baseViewController?.present(rootnavBar, animated: true, completion: nil)
     }
     
     func signUp() {
@@ -34,19 +35,4 @@ class LoginRouter: LoginRouterProtocol {
             UIApplication.shared.open(url)
         }
     }
-}
-extension LoginRouterProtocol {
-    static func createLoginView() -> LoginViewController? {
-        let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController")  as? LoginViewController
-        let presenter = LoginPresenter()
-        let interactor = LoginInteractor()
-        let router = LoginRouter()
-        router.baseViewController = loginVC
-        presenter.interactor = interactor
-        presenter.router = router
-        loginVC?.presenter = presenter
-        presenter.view = loginVC
-        return loginVC
-    }
-    
 }

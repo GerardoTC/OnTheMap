@@ -27,6 +27,14 @@
 		37E790EE24704B1E00965E0D /* TabsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E790ED24704B1E00965E0D /* TabsPresenter.swift */; };
 		37E790F024704B2700965E0D /* TabsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E790EF24704B2700965E0D /* TabsRouter.swift */; };
 		37E790F224704B3C00965E0D /* TabsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E790F124704B3C00965E0D /* TabsProtocols.swift */; };
+		37E790F52470553D00965E0D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E790F42470553D00965E0D /* MapViewController.swift */; };
+		37E790F7247058C800965E0D /* MapProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E790F6247058C800965E0D /* MapProtocols.swift */; };
+		37E790F92470620200965E0D /* ViewControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E790F82470620200965E0D /* ViewControllersFactory.swift */; };
+		37E790FC24706B6100965E0D /* LocationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E790FB24706B6100965E0D /* LocationListViewController.swift */; };
+		37E790FE24706E9800965E0D /* MapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E790FD24706E9800965E0D /* MapPresenter.swift */; };
+		37E7910024706F5700965E0D /* MapRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E790FF24706F5700965E0D /* MapRouter.swift */; };
+		37E7910224706F9800965E0D /* MapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E7910124706F9800965E0D /* MapInteractor.swift */; };
+		37E79104247071F000965E0D /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E79103247071F000965E0D /* UIViewControllerExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +60,14 @@
 		37E790ED24704B1E00965E0D /* TabsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsPresenter.swift; sourceTree = "<group>"; };
 		37E790EF24704B2700965E0D /* TabsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsRouter.swift; sourceTree = "<group>"; };
 		37E790F124704B3C00965E0D /* TabsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsProtocols.swift; sourceTree = "<group>"; };
+		37E790F42470553D00965E0D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		37E790F6247058C800965E0D /* MapProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapProtocols.swift; sourceTree = "<group>"; };
+		37E790F82470620200965E0D /* ViewControllersFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllersFactory.swift; sourceTree = "<group>"; };
+		37E790FB24706B6100965E0D /* LocationListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListViewController.swift; sourceTree = "<group>"; };
+		37E790FD24706E9800965E0D /* MapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPresenter.swift; sourceTree = "<group>"; };
+		37E790FF24706F5700965E0D /* MapRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRouter.swift; sourceTree = "<group>"; };
+		37E7910124706F9800965E0D /* MapInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractor.swift; sourceTree = "<group>"; };
+		37E79103247071F000965E0D /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +116,8 @@
 		372A069D24677841001EC163 /* Sections */ = {
 			isa = PBXGroup;
 			children = (
+				37E790FA24706B4800965E0D /* LocationsList */,
+				37E790F32470552700965E0D /* Map */,
 				37E790EA24703FED00965E0D /* RootTabs */,
 				372A069E24677849001EC163 /* Login */,
 			);
@@ -124,6 +142,7 @@
 			children = (
 				374276B324679DA600E2A635 /* Extensions */,
 				374276A724678A6C00E2A635 /* Constants.swift */,
+				37E790F82470620200965E0D /* ViewControllersFactory.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -150,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				37E790E824703D3800965E0D /* UINavigationItemExtension.swift */,
+				37E79103247071F000965E0D /* UIViewControllerExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -163,6 +183,26 @@
 				37E790F124704B3C00965E0D /* TabsProtocols.swift */,
 			);
 			path = RootTabs;
+			sourceTree = "<group>";
+		};
+		37E790F32470552700965E0D /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				37E790F42470553D00965E0D /* MapViewController.swift */,
+				37E790F6247058C800965E0D /* MapProtocols.swift */,
+				37E790FD24706E9800965E0D /* MapPresenter.swift */,
+				37E790FF24706F5700965E0D /* MapRouter.swift */,
+				37E7910124706F9800965E0D /* MapInteractor.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		37E790FA24706B4800965E0D /* LocationsList */ = {
+			isa = PBXGroup;
+			children = (
+				37E790FB24706B6100965E0D /* LocationListViewController.swift */,
+			);
+			path = LocationsList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,7 +277,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				372A06A024677863001EC163 /* LoginPresenter.swift in Sources */,
+				37E790F92470620200965E0D /* ViewControllersFactory.swift in Sources */,
+				37E79104247071F000965E0D /* UIViewControllerExtension.swift in Sources */,
 				374276AD246793D400E2A635 /* OTMAPIClient.swift in Sources */,
+				37E790FE24706E9800965E0D /* MapPresenter.swift in Sources */,
+				37E7910024706F5700965E0D /* MapRouter.swift in Sources */,
 				372A068E24676746001EC163 /* LoginViewController.swift in Sources */,
 				372A06A724677CD4001EC163 /* LoginInteractor.swift in Sources */,
 				374276AA2467908C00E2A635 /* LoginResponses.swift in Sources */,
@@ -245,10 +289,14 @@
 				37E790F024704B2700965E0D /* TabsRouter.swift in Sources */,
 				37E790E924703D3800965E0D /* UINavigationItemExtension.swift in Sources */,
 				374276B0246795F200E2A635 /* LoginRequests.swift in Sources */,
+				37E790FC24706B6100965E0D /* LocationListViewController.swift in Sources */,
+				37E790F7247058C800965E0D /* MapProtocols.swift in Sources */,
 				37E790EC2470401700965E0D /* TabsViewController.swift in Sources */,
+				37E7910224706F9800965E0D /* MapInteractor.swift in Sources */,
 				37E790EE24704B1E00965E0D /* TabsPresenter.swift in Sources */,
 				372A06A524677CC5001EC163 /* LoginRouter.swift in Sources */,
 				37E790F224704B3C00965E0D /* TabsProtocols.swift in Sources */,
+				37E790F52470553D00965E0D /* MapViewController.swift in Sources */,
 				372A068A24676746001EC163 /* AppDelegate.swift in Sources */,
 				372A068C24676746001EC163 /* SceneDelegate.swift in Sources */,
 				372A06A2246779AA001EC163 /* LoginProtocols.swift in Sources */,

@@ -34,7 +34,7 @@ class TabsViewController: UITabBarController {
 
 extension TabsViewController: TabsViewProtocol {
     func currentRefreshableView() -> RefreshableViewController? {
-        return tabBarController?.selectedViewController as? RefreshableViewController
+        return selectedViewController as? RefreshableViewController
     }
     
     func setUpView() {

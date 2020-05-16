@@ -12,7 +12,7 @@ struct Resource<T> {
 let url: URL
 let parse: (Data) throws -> T
 let errorParse: (Data) throws -> GenericResponse
-let body: () throws -> Data
+let body: (() throws -> Data)?
 }
 
 enum DataError: LocalizedError {
