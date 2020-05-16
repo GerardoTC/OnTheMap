@@ -51,4 +51,9 @@ extension LoginViewController: LoginViewProtocol {
         passwordField.isEnabled = enable
         loginButton.isEnabled = enable
     }
+    
+    func clearTextFields() {
+        emailField.text = String()
+        passwordField.text = String()
+    }
 }

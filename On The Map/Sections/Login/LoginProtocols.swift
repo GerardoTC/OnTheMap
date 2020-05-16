@@ -13,6 +13,7 @@ protocol LoginViewProtocol: class {
     func updateLoading(hide: Bool)
     func updateErrorText(text: String)
     func updateView(_ enable: Bool)
+    func clearTextFields()
 }
 
 protocol LoginPresenterProtocol: class {

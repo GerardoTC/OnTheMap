@@ -37,6 +37,7 @@ class LoginPresenter: LoginPresenterProtocol {
         view?.updateView(true)
         switch result {
         case .success(_):
+            view.clearTextFields()
             router.routeToMainScreen()
         case .failure(let error):
             view.updateErrorText(text: error.localizedDescription)

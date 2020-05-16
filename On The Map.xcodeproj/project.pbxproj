@@ -24,6 +24,9 @@
 		374276B224679D8000E2A635 /* NetworkingModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374276B124679D8000E2A635 /* NetworkingModels.swift */; };
 		37E790E924703D3800965E0D /* UINavigationItemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E790E824703D3800965E0D /* UINavigationItemExtension.swift */; };
 		37E790EC2470401700965E0D /* TabsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E790EB2470401700965E0D /* TabsViewController.swift */; };
+		37E790EE24704B1E00965E0D /* TabsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E790ED24704B1E00965E0D /* TabsPresenter.swift */; };
+		37E790F024704B2700965E0D /* TabsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E790EF24704B2700965E0D /* TabsRouter.swift */; };
+		37E790F224704B3C00965E0D /* TabsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E790F124704B3C00965E0D /* TabsProtocols.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +49,9 @@
 		374276B124679D8000E2A635 /* NetworkingModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingModels.swift; sourceTree = "<group>"; };
 		37E790E824703D3800965E0D /* UINavigationItemExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationItemExtension.swift; sourceTree = "<group>"; };
 		37E790EB2470401700965E0D /* TabsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsViewController.swift; sourceTree = "<group>"; };
+		37E790ED24704B1E00965E0D /* TabsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsPresenter.swift; sourceTree = "<group>"; };
+		37E790EF24704B2700965E0D /* TabsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsRouter.swift; sourceTree = "<group>"; };
+		37E790F124704B3C00965E0D /* TabsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsProtocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +100,7 @@
 		372A069D24677841001EC163 /* Sections */ = {
 			isa = PBXGroup;
 			children = (
-				37E790EA24703FED00965E0D /* Tabs */,
+				37E790EA24703FED00965E0D /* RootTabs */,
 				372A069E24677849001EC163 /* Login */,
 			);
 			path = Sections;
@@ -148,12 +154,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		37E790EA24703FED00965E0D /* Tabs */ = {
+		37E790EA24703FED00965E0D /* RootTabs */ = {
 			isa = PBXGroup;
 			children = (
 				37E790EB2470401700965E0D /* TabsViewController.swift */,
+				37E790ED24704B1E00965E0D /* TabsPresenter.swift */,
+				37E790EF24704B2700965E0D /* TabsRouter.swift */,
+				37E790F124704B3C00965E0D /* TabsProtocols.swift */,
 			);
-			path = Tabs;
+			path = RootTabs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,10 +242,13 @@
 				372A06A724677CD4001EC163 /* LoginInteractor.swift in Sources */,
 				374276AA2467908C00E2A635 /* LoginResponses.swift in Sources */,
 				374276B224679D8000E2A635 /* NetworkingModels.swift in Sources */,
+				37E790F024704B2700965E0D /* TabsRouter.swift in Sources */,
 				37E790E924703D3800965E0D /* UINavigationItemExtension.swift in Sources */,
 				374276B0246795F200E2A635 /* LoginRequests.swift in Sources */,
 				37E790EC2470401700965E0D /* TabsViewController.swift in Sources */,
+				37E790EE24704B1E00965E0D /* TabsPresenter.swift in Sources */,
 				372A06A524677CC5001EC163 /* LoginRouter.swift in Sources */,
+				37E790F224704B3C00965E0D /* TabsProtocols.swift in Sources */,
 				372A068A24676746001EC163 /* AppDelegate.swift in Sources */,
 				372A068C24676746001EC163 /* SceneDelegate.swift in Sources */,
 				372A06A2246779AA001EC163 /* LoginProtocols.swift in Sources */,

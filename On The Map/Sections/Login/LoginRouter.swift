@@ -14,9 +14,18 @@ class LoginRouter: LoginRouterProtocol {
     var baseViewController: UIViewController?
     
     func routeToMainScreen() {
-        let rootNav = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RootNavController")
+        guard let rootNav = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RootNavController") as? UINavigationController else {
+            return
+        }
         rootNav.modalPresentationStyle = .fullScreen
         rootNav.modalTransitionStyle = .crossDissolve
+        let tabBarVC = rootNav.viewControllers.first as? TabsViewController
+        let router = TabsRouter()
+        router.baseViewController = rootNav
+        let presenter = TabsPresenter()
+        presenter.view = tabBarVC
+        presenter.router = router
+        tabBarVC?.presenter = presenter
         baseViewController?.present(rootNav, animated: true, completion: nil)
     }
     
