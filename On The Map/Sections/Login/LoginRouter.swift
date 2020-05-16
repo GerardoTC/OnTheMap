@@ -19,6 +19,12 @@ class LoginRouter: LoginRouterProtocol {
         rootNav.modalTransitionStyle = .crossDissolve
         baseViewController?.present(rootNav, animated: true, completion: nil)
     }
+    
+    func signUp() {
+        if let url = URL(string: "https://auth.udacity.com/sign-up") {
+            UIApplication.shared.open(url)
+        }
+    }
 }
 extension LoginRouterProtocol {
     static func createLoginView() -> LoginViewController? {

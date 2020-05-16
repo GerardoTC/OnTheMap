@@ -18,6 +18,7 @@ protocol LoginViewProtocol: class {
 protocol LoginPresenterProtocol: class {
     func viewDidLoad()
     func loginWith(email: String, password: String)
+    func signUp()
 }
 
 protocol LoginInteractorProtocol: class {
@@ -27,5 +28,6 @@ protocol LoginInteractorProtocol: class {
 protocol LoginRouterProtocol: class {
     var baseViewController: UIViewController? {get set}
     func routeToMainScreen()
-    static func createLoginView() -> LoginViewController? 
+    static func createLoginView() -> LoginViewController?
+    func signUp()
 }

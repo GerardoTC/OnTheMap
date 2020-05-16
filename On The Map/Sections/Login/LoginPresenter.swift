@@ -9,26 +9,26 @@
 import Foundation
 
 class LoginPresenter: LoginPresenterProtocol {
-    weak var view: LoginViewProtocol?
-    var interactor: LoginInteractorProtocol?
-    var router: LoginRouterProtocol?
+    weak var view: LoginViewProtocol!
+    var interactor: LoginInteractorProtocol!
+    var router: LoginRouterProtocol!
     
     func viewDidLoad() {
-        view?.updateLoading(hide: true)
+        view.updateLoading(hide: true)
     }
     
     func loginWith(email: String, password: String) {
         guard isValidEmail(email) else {
-            view?.updateErrorText(text: LoginConstants.emailError)
+            view.updateErrorText(text: LoginConstants.emailError)
             return
         }
         guard !password.isEmpty else {
             view?.updateErrorText(text: LoginConstants.emptyPassword)
             return
         }
-        view?.updateErrorText(text: String())
-        view?.updateLoading(hide: false)
-        view?.updateView(false)
+        view.updateErrorText(text: String())
+        view.updateLoading(hide: false)
+        view.updateView(false)
         interactor?.loginWith(email: email, password: password, result: handleLoginResponse(result:))
     }
     
@@ -36,11 +36,15 @@ class LoginPresenter: LoginPresenterProtocol {
         view?.updateLoading(hide: true)
         view?.updateView(true)
         switch result {
-        case .success(let response):
-            router?.routeToMainScreen()
+        case .success(_):
+            router.routeToMainScreen()
         case .failure(let error):
-            view?.updateErrorText(text: error.localizedDescription)
+            view.updateErrorText(text: error.localizedDescription)
         }
+    }
+    
+    func signUp() {
+        router.signUp()
     }
     
     func isValidEmail(_ email: String) -> Bool {

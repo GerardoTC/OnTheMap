@@ -23,6 +23,10 @@ class LoginViewController: UIViewController {
         }
         presenter.loginWith(email: email, password: password)
     }
+    
+    @IBAction func signUp() {
+        presenter.signUp()
+    }
 }
 
 //Mark: - Life cycle viewcontroller
