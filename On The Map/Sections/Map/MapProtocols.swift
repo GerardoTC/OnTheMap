@@ -15,10 +15,11 @@ protocol MapPresenterProtocol: class {
 
 protocol MapViewProtocol: class {
     func add(annotations: [MKAnnotation])
+    func showAlertError(text: String)
 }
 
 protocol MapInteractorProtocol: class {
-    
+    func getLocations(limit: Int, completion: @escaping (Result<[PinAnnotation], Error>) -> Void)
 }
 
 protocol MapRouterProtocol: class {

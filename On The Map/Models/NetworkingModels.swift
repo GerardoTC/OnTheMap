@@ -30,3 +30,8 @@ enum DataError: LocalizedError {
         }
     }
 }
+
+struct GenericResponse: Codable {
+    var status: Int
+    var error: String
+}

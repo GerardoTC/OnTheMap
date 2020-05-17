@@ -12,17 +12,26 @@ class OTMAPIClient {
     enum Endpoints {
         static var base = "https://onthemap-api.udacity.com/v1"
         case session
-        
+        case studentLocation(limit: Int)
         var stringValue: String {
                switch self {
                case .session:
                 return OTMAPIClient.Endpoints.base + "/session"
+               case .studentLocation(let limit):
+                return OTMAPIClient.Endpoints.base + "/StudentLocation?order=-updatedAt" + "&limit=\(limit)"
                }
         }
         
         var url: URL {
             return URL(string: stringValue)!
         }
+    }
+    
+    class func genericErrorParse() -> (Data) throws -> GenericResponse {
+        let errorParse: (Data) throws -> GenericResponse = { data in
+            try JSONDecoder().decode(GenericResponse.self, from: data)
+        }
+        return errorParse
     }
     
     class func postRequest<A>(resource: Resource<A>, completion: @escaping (Result<A, Error>) -> Void) {
@@ -50,6 +59,27 @@ class OTMAPIClient {
                 )
             }
            
+        }
+        task.resume()
+    }
+    
+    class func getRequest<A>(resource: Resource<A>, completion: @escaping (Result<A,Error>) -> Void) {
+        let task = URLSession.shared.dataTask(with: resource.url) { (data, response, error) in
+            DispatchQueue.main.async {
+                completion(
+                    Result {
+                        guard let data = data else { throw DataError.noDataError }
+                        if let dataParsed = try? resource.parse(data) {
+                            return dataParsed
+                        } else {
+                            guard let genericError = try? resource.errorParse(data) else {
+                                throw DataError.unknown
+                            }
+                            throw DataError.genericError(desc: genericError.error, code: genericError.status)
+                        }
+                    }
+                )
+            }
         }
         task.resume()
     }

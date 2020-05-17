@@ -62,10 +62,12 @@ struct ViewControllersFactory: ViewControllersFactoryProtocol {
     func createMapView() -> MapViewController? {
         let mapView: MapViewController? = createFromStoryBoard(identifier: "MapViewController")
         let presenter = MapPresenter()
+        let interactor = MapInteractor()
         let router = MapRouter()
         mapView?.presenter = presenter
         presenter.router = router
         presenter.view = mapView
+        presenter.interactor = interactor
         return mapView
     }
     

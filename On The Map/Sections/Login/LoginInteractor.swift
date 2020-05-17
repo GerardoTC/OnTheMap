@@ -24,12 +24,9 @@ class LoginInteractor: LoginInteractorProtocol {
             try JSONDecoder().decode(LoginResponse.self, from: data)
         }
         
-        let errorParse: (Data) throws -> GenericResponse = { data in
-            try JSONDecoder().decode(GenericResponse.self, from: data)
-        }
         return Resource(url: OTMAPIClient.Endpoints.session.url,
                         parse: parse,
-                        errorParse: errorParse,
+                        errorParse: OTMAPIClient.genericErrorParse(),
                         body: body)
     }
     

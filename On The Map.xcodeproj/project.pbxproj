@@ -35,6 +35,7 @@
 		37E7910024706F5700965E0D /* MapRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E790FF24706F5700965E0D /* MapRouter.swift */; };
 		37E7910224706F9800965E0D /* MapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E7910124706F9800965E0D /* MapInteractor.swift */; };
 		37E79104247071F000965E0D /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E79103247071F000965E0D /* UIViewControllerExtension.swift */; };
+		37E7911224717BFF00965E0D /* StudentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E7911124717BFF00965E0D /* StudentInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		37E790FF24706F5700965E0D /* MapRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRouter.swift; sourceTree = "<group>"; };
 		37E7910124706F9800965E0D /* MapInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractor.swift; sourceTree = "<group>"; };
 		37E79103247071F000965E0D /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		37E7911124717BFF00965E0D /* StudentInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 		372A068824676746001EC163 /* On The Map */ = {
 			isa = PBXGroup;
 			children = (
+				37E7910C2471795B00965E0D /* Models */,
 				374276AB246793B600E2A635 /* Networking */,
 				372A06A324677A7C001EC163 /* Utils */,
 				372A069D24677841001EC163 /* Sections */,
@@ -127,7 +130,6 @@
 		372A069E24677849001EC163 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				374276AE246795CD00E2A635 /* Models */,
 				372A068D24676746001EC163 /* LoginViewController.swift */,
 				372A069F24677863001EC163 /* LoginPresenter.swift */,
 				372A06A624677CD4001EC163 /* LoginInteractor.swift */,
@@ -151,18 +153,17 @@
 			isa = PBXGroup;
 			children = (
 				374276AC246793D400E2A635 /* OTMAPIClient.swift */,
-				374276B124679D8000E2A635 /* NetworkingModels.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		374276AE246795CD00E2A635 /* Models */ = {
+		374276AE246795CD00E2A635 /* LoginModels */ = {
 			isa = PBXGroup;
 			children = (
 				374276A92467908C00E2A635 /* LoginResponses.swift */,
 				374276AF246795F200E2A635 /* LoginRequests.swift */,
 			);
-			path = Models;
+			path = LoginModels;
 			sourceTree = "<group>";
 		};
 		374276B324679DA600E2A635 /* Extensions */ = {
@@ -203,6 +204,16 @@
 				37E790FB24706B6100965E0D /* LocationListViewController.swift */,
 			);
 			path = LocationsList;
+			sourceTree = "<group>";
+		};
+		37E7910C2471795B00965E0D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				374276B124679D8000E2A635 /* NetworkingModels.swift */,
+				374276AE246795CD00E2A635 /* LoginModels */,
+				37E7911124717BFF00965E0D /* StudentInfo.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,6 +310,7 @@
 				37E790F52470553D00965E0D /* MapViewController.swift in Sources */,
 				372A068A24676746001EC163 /* AppDelegate.swift in Sources */,
 				372A068C24676746001EC163 /* SceneDelegate.swift in Sources */,
+				37E7911224717BFF00965E0D /* StudentInfo.swift in Sources */,
 				372A06A2246779AA001EC163 /* LoginProtocols.swift in Sources */,
 				374276A824678A6C00E2A635 /* Constants.swift in Sources */,
 			);

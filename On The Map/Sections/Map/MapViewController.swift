@@ -15,32 +15,28 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
-        // Do any additional setup after loading the view.
-        let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
-        mapView.centerToLocation(initialLocation)
-        let pin = PinAnnotation(coordinate: CLLocationCoordinate2D(latitude: 21.282778, longitude: -157.829444), title: "Honolulu paark", subtitle: "No subtitle for this")
-        let annotation = MKAnnotationView(annotation: pin, reuseIdentifier: "1")
-//        MKPinAnnotationView(annotation: MKAnnotation?, reuseIdentifier: <#T##String?#>)
     }
 
 }
 
 extension MapViewController: MapViewProtocol {
     func add(annotations: [MKAnnotation]) {
-        
+        mapView.removeAnnotations(mapView.annotations)
+        mapView.addAnnotations(annotations)
     }
 }
 
 extension MapViewController: RefreshableViewController {
     func refreshView() {
-        print("Refresh")
+        presenter.viewDidLoad()
+    }
+    
+    func showAlertError(text: String) {
+        print(text)
     }
 }
 private extension MKMapView {
-  func centerToLocation(
-    _ location: CLLocation,
-    regionRadius: CLLocationDistance = 1000
-  ) {
+  func centerToLocation(_ location: CLLocation, regionRadius: CLLocationDistance = 1000) {
     let coordinateRegion = MKCoordinateRegion(
       center: location.coordinate,
       latitudinalMeters: regionRadius,

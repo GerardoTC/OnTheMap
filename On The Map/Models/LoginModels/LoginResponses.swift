@@ -23,7 +23,3 @@ struct SessionInfo: Codable {
     var expiration: String
 }
 
-struct GenericResponse: Codable {
-    var status: Int
-    var error: String
-}

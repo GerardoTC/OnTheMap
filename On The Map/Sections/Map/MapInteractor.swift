@@ -10,4 +10,25 @@ import Foundation
 
 class MapInteractor: MapInteractorProtocol {
     
+    func getLocations(limit: Int, completion: @escaping (Result<[PinAnnotation], Error>) -> Void) {
+        let studentInfoParse: (Data) throws -> StudentsInfo = { data in
+            try JSONDecoder().decode(StudentsInfo.self, from: data)
+        }
+        
+        let resource = Resource(url: OTMAPIClient.Endpoints.studentLocation(limit: limit).url,
+                                parse: studentInfoParse,
+                                errorParse: OTMAPIClient.genericErrorParse(),
+                                body: nil)
+        OTMAPIClient.getRequest(resource: resource) { result in
+            switch result {
+            case .success(let students):
+                let pins: [PinAnnotation] = students.results.map { (student) -> PinAnnotation in
+                    PinAnnotation(coordinate: student.location, title: "\(student.firstName) \(student.lastName)")
+                }
+                completion(.success(pins))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
 }
