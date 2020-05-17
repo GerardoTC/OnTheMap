@@ -15,7 +15,7 @@ struct StudentInfo: Decodable {
     var firstName: String
     var lastName: String
     var mapString: String
-    var mediaURL: URL?
+    var mediaURL: String
     var objectId: String
     var uniqueKey: String
     var updatedAt: Date?
@@ -42,7 +42,7 @@ struct StudentInfo: Decodable {
         self.firstName = try container.decode(String.self, forKey: .firstName)
         self.lastName = try container.decode(String.self, forKey: .lastName)
         self.mapString = try container.decode(String.self, forKey: .mapString)
-        self.mediaURL = URL(string: try container.decode(String.self, forKey: .mediaURL))
+        self.mediaURL = try container.decode(String.self, forKey: .mediaURL)
         self.objectId = try container.decode(String.self, forKey: .objectId)
         self.uniqueKey = try container.decode(String.self, forKey: .uniqueKey)
         self.updatedAt = dateFormatter.date(from: try container.decode(String.self, forKey: .updatedAt))

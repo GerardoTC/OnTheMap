@@ -63,7 +63,8 @@ class OTMAPIClient {
         task.resume()
     }
     
-    class func getRequest<A>(resource: Resource<A>, completion: @escaping (Result<A,Error>) -> Void) {
+    @discardableResult
+    class func getRequest<A>(resource: Resource<A>, completion: @escaping (Result<A,Error>) -> Void) -> URLSessionTask {
         let task = URLSession.shared.dataTask(with: resource.url) { (data, response, error) in
             DispatchQueue.main.async {
                 completion(
@@ -82,5 +83,6 @@ class OTMAPIClient {
             }
         }
         task.resume()
+        return task
     }
 }

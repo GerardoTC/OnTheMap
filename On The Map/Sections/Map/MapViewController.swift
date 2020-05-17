@@ -11,10 +11,12 @@ import MapKit
 
 class MapViewController: UIViewController {
     @IBOutlet var mapView: MKMapView!
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
     var presenter: MapPresenterProtocol!
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
+        mapView.delegate = self
     }
 
 }
@@ -31,31 +33,34 @@ extension MapViewController: RefreshableViewController {
         presenter.viewDidLoad()
     }
     
+    func updateLoading(hide: Bool) {
+        self.activityIndicator.isHidden = hide
+    }
     func showAlertError(text: String) {
-        print(text)
+        let alert = UIAlertController(title: "Oops...", message: text, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
-private extension MKMapView {
-  func centerToLocation(_ location: CLLocation, regionRadius: CLLocationDistance = 1000) {
-    let coordinateRegion = MKCoordinateRegion(
-      center: location.coordinate,
-      latitudinalMeters: regionRadius,
-      longitudinalMeters: regionRadius)
-    setRegion(coordinateRegion, animated: true)
-  }
-}
 
-class PinAnnotation: NSObject, MKAnnotation {
+extension MapViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard let view = mapView.dequeueReusableAnnotationView(withIdentifier: "IdentifierAnnotation") as? MKMarkerAnnotationView else {
+            let newView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "IdentifierAnnotation")
+            newView.canShowCallout = true
+            newView.calloutOffset = CGPoint(x: -1, y: 1)
+            newView.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+            return newView
+        }
+        view.annotation = annotation
+        return view
+    }
     
-      var coordinate: CLLocationCoordinate2D
-
-      var title: String?
-
-      var subtitle: String?
-    
-    init(coordinate: CLLocationCoordinate2D, title: String? = nil, subtitle: String? = nil) {
-        self.coordinate = coordinate
-        self.title = title
-        self.subtitle = subtitle
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        guard let annotation = view.annotation else {
+            return
+        }
+        presenter.annotationTapped(annotation: annotation)
     }
 }
+

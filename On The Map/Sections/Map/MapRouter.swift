@@ -7,7 +7,10 @@
 //
 
 import Foundation
+import UIKit
 
 class MapRouter: MapRouterProtocol {
-    
+    func routeTo(url: URL) {
+        UIApplication.shared.open(url)
+    }
 }

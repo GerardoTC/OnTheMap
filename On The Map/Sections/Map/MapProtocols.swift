@@ -11,11 +11,13 @@ import MapKit
 
 protocol MapPresenterProtocol: class {
     func viewDidLoad()
+    func annotationTapped(annotation: MKAnnotation)
 }
 
 protocol MapViewProtocol: class {
     func add(annotations: [MKAnnotation])
     func showAlertError(text: String)
+    func updateLoading(hide: Bool)
 }
 
 protocol MapInteractorProtocol: class {
@@ -23,5 +25,5 @@ protocol MapInteractorProtocol: class {
 }
 
 protocol MapRouterProtocol: class {
-    
+    func routeTo(url: URL)
 }

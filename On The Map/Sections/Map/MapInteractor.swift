@@ -9,8 +9,10 @@
 import Foundation
 
 class MapInteractor: MapInteractorProtocol {
+    var currentTask: URLSessionTask?
     
     func getLocations(limit: Int, completion: @escaping (Result<[PinAnnotation], Error>) -> Void) {
+        currentTask?.cancel()
         let studentInfoParse: (Data) throws -> StudentsInfo = { data in
             try JSONDecoder().decode(StudentsInfo.self, from: data)
         }
@@ -19,16 +21,18 @@ class MapInteractor: MapInteractorProtocol {
                                 parse: studentInfoParse,
                                 errorParse: OTMAPIClient.genericErrorParse(),
                                 body: nil)
-        OTMAPIClient.getRequest(resource: resource) { result in
-            switch result {
-            case .success(let students):
-                let pins: [PinAnnotation] = students.results.map { (student) -> PinAnnotation in
-                    PinAnnotation(coordinate: student.location, title: "\(student.firstName) \(student.lastName)")
-                }
-                completion(.success(pins))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
+        currentTask = OTMAPIClient.getRequest(resource: resource) { result in
+                            switch result {
+                            case .success(let students):
+                                let pins: [PinAnnotation] = students.results.map { (student) -> PinAnnotation in
+                                    PinAnnotation(coordinate: student.location,
+                                                  title: "\(student.firstName) \(student.lastName)",
+                                        subtitle: student.mediaURL)
+                                }
+                                completion(.success(pins))
+                            case .failure(let error):
+                                completion(.failure(error))
+                            }
+                        }
     }
 }

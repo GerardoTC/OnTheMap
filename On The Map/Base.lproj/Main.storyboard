@@ -187,12 +187,18 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Uos-Ag-VIF">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                             </mapView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="4ws-M4-oV8">
+                                <rect key="frame" x="0.0" y="64" width="414" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Uos-Ag-VIF" firstAttribute="bottom" secondItem="8wg-2F-hoZ" secondAttribute="bottom" id="4lM-hs-S8a"/>
+                            <constraint firstItem="4ws-M4-oV8" firstAttribute="leading" secondItem="8wg-2F-hoZ" secondAttribute="leading" id="Y8z-xe-aaU"/>
+                            <constraint firstItem="8wg-2F-hoZ" firstAttribute="trailing" secondItem="4ws-M4-oV8" secondAttribute="trailing" id="bgd-q9-XNi"/>
                             <constraint firstItem="Uos-Ag-VIF" firstAttribute="trailing" secondItem="8wg-2F-hoZ" secondAttribute="trailing" id="h9a-FA-maK"/>
                             <constraint firstItem="Uos-Ag-VIF" firstAttribute="leading" secondItem="8wg-2F-hoZ" secondAttribute="leading" id="kHs-4x-hfz"/>
+                            <constraint firstItem="4ws-M4-oV8" firstAttribute="top" secondItem="8wg-2F-hoZ" secondAttribute="top" constant="20" id="nM4-gM-SaK"/>
                             <constraint firstItem="Uos-Ag-VIF" firstAttribute="top" secondItem="8wg-2F-hoZ" secondAttribute="top" id="sjv-sv-uym"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8wg-2F-hoZ"/>
@@ -201,6 +207,7 @@
                         <color key="badgeColor" red="0.0002627525162" green="0.35283859090000003" blue="0.54660402789999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="4ws-M4-oV8" id="QJd-PD-e4I"/>
                         <outlet property="mapView" destination="Uos-Ag-VIF" id="kUb-4B-zYC"/>
                     </connections>
                 </viewController>
