@@ -10,8 +10,8 @@ import UIKit
 import MapKit
 
 class MapViewController: UIViewController {
-    @IBOutlet var mapView: MKMapView!
-    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var presenter: MapPresenterProtocol!
     override func viewDidLoad() {
         super.viewDidLoad()

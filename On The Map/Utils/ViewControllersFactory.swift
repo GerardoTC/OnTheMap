@@ -55,7 +55,13 @@ struct ViewControllersFactory: ViewControllersFactoryProtocol {
     
     func createListView() -> LocationListViewController? {
         let locationList: LocationListViewController? = createFromStoryBoard(identifier: "LocationListViewController")
-        
+        let presenter = LocationListPresenter()
+        let router = LocationListRouter()
+        let interactor = LocationListInteractor()
+        presenter.view = locationList
+        locationList?.presenter = presenter
+        presenter.router = router
+        presenter.interactor = interactor
         return locationList
     }
     

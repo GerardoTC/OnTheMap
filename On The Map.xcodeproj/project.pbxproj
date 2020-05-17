@@ -38,6 +38,10 @@
 		37E7911224717BFF00965E0D /* StudentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E7911124717BFF00965E0D /* StudentInfo.swift */; };
 		37E791152471954600965E0D /* PinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E791142471954600965E0D /* PinAnnotation.swift */; };
 		37E791172471B83800965E0D /* MKMapViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E791162471B83800965E0D /* MKMapViewExtension.swift */; };
+		37E7911B2471C64400965E0D /* LocationListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E7911A2471C64400965E0D /* LocationListPresenter.swift */; };
+		37E7911D2471C65700965E0D /* LocationListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E7911C2471C65700965E0D /* LocationListRouter.swift */; };
+		37E7911F2471C66E00965E0D /* LocationListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E7911E2471C66E00965E0D /* LocationListProtocols.swift */; };
+		37E791212471C68400965E0D /* LocationListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E791202471C68400965E0D /* LocationListInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +78,10 @@
 		37E7911124717BFF00965E0D /* StudentInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentInfo.swift; sourceTree = "<group>"; };
 		37E791142471954600965E0D /* PinAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinAnnotation.swift; sourceTree = "<group>"; };
 		37E791162471B83800965E0D /* MKMapViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMapViewExtension.swift; sourceTree = "<group>"; };
+		37E7911A2471C64400965E0D /* LocationListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListPresenter.swift; sourceTree = "<group>"; };
+		37E7911C2471C65700965E0D /* LocationListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListRouter.swift; sourceTree = "<group>"; };
+		37E7911E2471C66E00965E0D /* LocationListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListProtocols.swift; sourceTree = "<group>"; };
+		37E791202471C68400965E0D /* LocationListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +215,10 @@
 			isa = PBXGroup;
 			children = (
 				37E790FB24706B6100965E0D /* LocationListViewController.swift */,
+				37E7911A2471C64400965E0D /* LocationListPresenter.swift */,
+				37E7911C2471C65700965E0D /* LocationListRouter.swift */,
+				37E7911E2471C66E00965E0D /* LocationListProtocols.swift */,
+				37E791202471C68400965E0D /* LocationListInteractor.swift */,
 			);
 			path = LocationsList;
 			sourceTree = "<group>";
@@ -306,7 +318,9 @@
 				37E79104247071F000965E0D /* UIViewControllerExtension.swift in Sources */,
 				374276AD246793D400E2A635 /* OTMAPIClient.swift in Sources */,
 				37E790FE24706E9800965E0D /* MapPresenter.swift in Sources */,
+				37E7911D2471C65700965E0D /* LocationListRouter.swift in Sources */,
 				37E7910024706F5700965E0D /* MapRouter.swift in Sources */,
+				37E791212471C68400965E0D /* LocationListInteractor.swift in Sources */,
 				372A068E24676746001EC163 /* LoginViewController.swift in Sources */,
 				372A06A724677CD4001EC163 /* LoginInteractor.swift in Sources */,
 				374276AA2467908C00E2A635 /* LoginResponses.swift in Sources */,
@@ -319,11 +333,13 @@
 				37E790F7247058C800965E0D /* MapProtocols.swift in Sources */,
 				37E790EC2470401700965E0D /* TabsViewController.swift in Sources */,
 				37E791152471954600965E0D /* PinAnnotation.swift in Sources */,
+				37E7911B2471C64400965E0D /* LocationListPresenter.swift in Sources */,
 				37E7910224706F9800965E0D /* MapInteractor.swift in Sources */,
 				37E790EE24704B1E00965E0D /* TabsPresenter.swift in Sources */,
 				372A06A524677CC5001EC163 /* LoginRouter.swift in Sources */,
 				37E790F224704B3C00965E0D /* TabsProtocols.swift in Sources */,
 				37E790F52470553D00965E0D /* MapViewController.swift in Sources */,
+				37E7911F2471C66E00965E0D /* LocationListProtocols.swift in Sources */,
 				372A068A24676746001EC163 /* AppDelegate.swift in Sources */,
 				372A068C24676746001EC163 /* SceneDelegate.swift in Sources */,
 				37E7911224717BFF00965E0D /* StudentInfo.swift in Sources */,
