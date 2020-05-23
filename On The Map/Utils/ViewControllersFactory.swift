@@ -16,6 +16,7 @@ protocol ViewControllersFactoryProtocol {
     func createListView() -> LocationListViewController?
     func createMapView() -> MapViewController?
     func createMainScreen() -> UIViewController?
+    func createAddPinFlow() -> UINavigationController? 
 }
 
 struct ViewControllersFactory: ViewControllersFactoryProtocol {
@@ -46,6 +47,7 @@ struct ViewControllersFactory: ViewControllersFactoryProtocol {
         let tabBarVC: TabsViewController? = createFromStoryBoard(identifier: "TabsViewController")
         let router = TabsRouter()
         router.baseViewController = tabBarVC
+        router.viewFactory = self
         let presenter = TabsPresenter()
         presenter.view = tabBarVC
         presenter.router = router
@@ -98,5 +100,24 @@ struct ViewControllersFactory: ViewControllersFactoryProtocol {
         listViewController.tabBarItem.selectedImage = UIImage(named: "listview-selected_icon")
         listViewController.tabBarItem.image = UIImage(named: "listview-deselected_icon")
         return rootnavBar
+    }
+    
+    func createAddPinFlow() -> UINavigationController? {
+        guard let addPinVC: FindLocationViewController = createFromStoryBoard(storyBoardName: "SetupPin",
+                                                                     identifier: "FindLocationViewController") else {
+                                                                        return nil
+        }
+        
+        let nav: UINavigationController? = createFromStoryBoard(storyBoardName: "SetupPin",
+                                                                identifier: "FindLocationNav")
+        let presenter = FindLocationPresenter()
+        let interactor = FindLocationInteractor()
+        let router = FindLocationRouter()
+        addPinVC.presenter = presenter
+        presenter.view = addPinVC
+        presenter.interactor = interactor
+        presenter.router = router
+        nav?.viewControllers = [addPinVC]
+        return nav
     }
 }

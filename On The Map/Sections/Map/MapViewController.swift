@@ -36,11 +36,7 @@ extension MapViewController: RefreshableViewController {
     func updateLoading(hide: Bool) {
         self.activityIndicator.isHidden = hide
     }
-    func showAlertError(text: String) {
-        let alert = UIAlertController(title: "Oops...", message: text, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
+    
 }
 
 extension MapViewController: MKMapViewDelegate {

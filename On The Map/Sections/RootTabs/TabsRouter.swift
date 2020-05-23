@@ -11,9 +11,12 @@ import UIKit
 
 class TabsRouter: TabsRouterProtocol {
     var baseViewController: UIViewController?
-    
+    var viewFactory: ViewControllersFactoryProtocol?
     func routeToAddPin() {
-
+        guard let nav = viewFactory?.createAddPinFlow() else {
+            return
+        }
+        baseViewController?.present(nav, animated: true, completion: nil)
     }
     
     func routeToLogout() {
