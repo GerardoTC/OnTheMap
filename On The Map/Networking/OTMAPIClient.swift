@@ -13,12 +13,15 @@ class OTMAPIClient {
         static var base = "https://onthemap-api.udacity.com/v1"
         case session
         case studentLocation(limit: Int)
+        case publicUserData(key: String)
         var stringValue: String {
                switch self {
                case .session:
                 return OTMAPIClient.Endpoints.base + "/session"
                case .studentLocation(let limit):
                 return OTMAPIClient.Endpoints.base + "/StudentLocation?order=-updatedAt" + "&limit=\(limit)"
+               case .publicUserData(let key):
+                return OTMAPIClient.Endpoints.base + "/users/\(key)"
                }
         }
         
@@ -64,16 +67,19 @@ class OTMAPIClient {
     }
     
     @discardableResult
-    class func getRequest<A>(resource: Resource<A>, completion: @escaping (Result<A,Error>) -> Void) -> URLSessionTask {
+    class func getRequest<A>(resource: Resource<A>, offsetData: Bool = false, completion: @escaping (Result<A,Error>) -> Void) -> URLSessionTask {
         let task = URLSession.shared.dataTask(with: resource.url) { (data, response, error) in
             DispatchQueue.main.async {
                 completion(
                     Result {
-                        guard let data = data else { throw DataError.noDataError }
-                        if let dataParsed = try? resource.parse(data) {
+                        guard var newData = data else { throw DataError.noDataError }
+                        if offsetData {
+                            newData = newData.subdata(in: 5..<newData.count)
+                        }
+                        if let dataParsed = try? resource.parse(newData) {
                             return dataParsed
                         } else {
-                            guard let genericError = try? resource.errorParse(data) else {
+                            guard let genericError = try? resource.errorParse(newData) else {
                                 throw DataError.unknown
                             }
                             throw DataError.genericError(desc: genericError.error, code: genericError.status)

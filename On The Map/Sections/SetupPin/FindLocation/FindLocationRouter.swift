@@ -9,9 +9,8 @@
 import Foundation
 
 class FindLocationRouter: FindLocationRouterProtocol {
-    func routeToMap(_ locationText: String, _ linkText: String) {
-        UserInfo
+    func routeToMap(studentInfo: StudentLocation) {
+        print(studentInfo)
     }
-    
-    
+
 }
