@@ -18,7 +18,7 @@ protocol FindLocationViewProtocol: class {
 }
 
 protocol FindLocationInteractorProtocol: class {
-    func fetchLocationWith(string: String, completion: (Result<CLLocationCoordinate2D,Error>) -> Void)
+    func fetchLocationWith(text: String, completion: @escaping (Result<CLLocationCoordinate2D,Error>) -> Void)
 }
 
 protocol FindLocationRouterProtocol: class {

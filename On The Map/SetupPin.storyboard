@@ -75,7 +75,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Gws-Pi-PMf"/>
                     </view>
-                    <navigationItem key="navigationItem" id="9vE-I8-VF7"/>
                     <connections>
                         <outlet property="linkText" destination="poD-BC-qyh" id="B4y-Mg-TY0"/>
                         <outlet property="locationText" destination="crV-hY-uQj" id="dEo-6Z-b9d"/>
@@ -85,10 +84,10 @@
             </objects>
             <point key="canvasLocation" x="96" y="149"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Setup Pin Navigator-->
         <scene sceneID="O6l-ol-Sbr">
             <objects>
-                <navigationController storyboardIdentifier="FindLocationNav" id="zEu-xm-zQz" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="FindLocationNav" id="zEu-xm-zQz" customClass="SetupPinNavigator" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IJi-Iz-GPX">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

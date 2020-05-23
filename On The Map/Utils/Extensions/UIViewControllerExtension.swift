@@ -25,4 +25,16 @@ extension UIViewController {
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
+    
+    func addCancelButton() {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel",
+                                                                 style: .plain,
+                                                                 target: target,
+                                                                 action: #selector(dismissView))
+    }
+    
+    
+    @objc func dismissView() {
+        self.dismiss(animated: true, completion: nil)
+    }
 }

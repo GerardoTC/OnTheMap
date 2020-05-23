@@ -8,8 +8,20 @@
 
 import Foundation
 import MapKit
+
 class FindLocationInteractor: FindLocationInteractorProtocol {
-    func fetchLocationWith(string: String, completion: (Result<CLLocationCoordinate2D,Error>) -> Void) {
-        
+    func fetchLocationWith(text: String, completion: @escaping (Result<CLLocationCoordinate2D,Error>) -> Void) {
+        let coder = CLGeocoder()
+        coder.geocodeAddressString(text) { (places, error) in
+            guard let placeMarks = places, placeMarks.count > 0 else {
+                completion(.failure(GeoCodeError.placeNotFound))
+                return
+            }
+            guard let coordinate = places?.first?.location?.coordinate else {
+                completion(.failure(GeoCodeError.placeNotFound))
+                return
+            }
+            completion(.success(coordinate))
+        }
     }
 }

@@ -31,10 +31,10 @@ class FindLocationPresenter: FindLocationPresenterProtocol {
             view.showAlertError(text: "The Link provided can't be handled please try with a different one")
             return
         }
-        interactor.fetchLocationWith(string: locationText) { (result) in
+        interactor.fetchLocationWith(text: locationText) { [unowned self] (result) in
             switch result {
             case .failure(_):
-                view.showAlertError(text: "The location could'nt be founded please add some info to the location field")
+                self.view.showAlertError(text: "The location could'nt be founded please add more information to the location field")
             case .success(let location):
                 let student = StudentLocation(uniqueKey: StudentAuthInfo.uniqueKey,
                                               firstName: StudentAuthInfo.firstName,
@@ -43,7 +43,7 @@ class FindLocationPresenter: FindLocationPresenterProtocol {
                                               mediaURL: linkText,
                                               latitude: location.latitude,
                                               longitude: location.longitude)
-                router.routeToMap(studentInfo: student)
+                self.router.routeToMap(studentInfo: student)
             }
         }
     }

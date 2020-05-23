@@ -14,6 +14,10 @@ class FindLocationViewController: UIViewController {
     @IBOutlet weak var linkText: UITextField!
     
     var presenter: FindLocationPresenterProtocol!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        addCancelButton()
+    }
     
     @IBAction func findLocationTapped() {
         guard let locationString = locationText.text,

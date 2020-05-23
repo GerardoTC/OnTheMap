@@ -29,6 +29,7 @@
 		37BBEE1224749C9E00DD68FB /* FindLocationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BBEE1124749C9E00DD68FB /* FindLocationRouter.swift */; };
 		37BBEE1424749CAA00DD68FB /* FindLocationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BBEE1324749CAA00DD68FB /* FindLocationPresenter.swift */; };
 		37BBEE162474ACD900DD68FB /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BBEE152474ACD900DD68FB /* StudentLocation.swift */; };
+		37C4823F24795EA300246883 /* GeoCodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C4823E24795EA300246883 /* GeoCodeError.swift */; };
 		37E790E924703D3800965E0D /* UINavigationItemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E790E824703D3800965E0D /* UINavigationItemExtension.swift */; };
 		37E790EC2470401700965E0D /* TabsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E790EB2470401700965E0D /* TabsViewController.swift */; };
 		37E790EE24704B1E00965E0D /* TabsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E790ED24704B1E00965E0D /* TabsPresenter.swift */; };
@@ -76,6 +77,7 @@
 		37BBEE1124749C9E00DD68FB /* FindLocationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindLocationRouter.swift; sourceTree = "<group>"; };
 		37BBEE1324749CAA00DD68FB /* FindLocationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindLocationPresenter.swift; sourceTree = "<group>"; };
 		37BBEE152474ACD900DD68FB /* StudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
+		37C4823E24795EA300246883 /* GeoCodeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoCodeError.swift; sourceTree = "<group>"; };
 		37E790E824703D3800965E0D /* UINavigationItemExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationItemExtension.swift; sourceTree = "<group>"; };
 		37E790EB2470401700965E0D /* TabsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsViewController.swift; sourceTree = "<group>"; };
 		37E790ED24704B1E00965E0D /* TabsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsPresenter.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				37E791142471954600965E0D /* PinAnnotation.swift */,
+				37C4823E24795EA300246883 /* GeoCodeError.swift */,
 			);
 			path = MapModels;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				37BBEE032474951000DD68FB /* FindLocationViewController.swift in Sources */,
 				37E7911224717BFF00965E0D /* StudentInfo.swift in Sources */,
 				37BBEE052474960C00DD68FB /* FindLocationProtocols.swift in Sources */,
+				37C4823F24795EA300246883 /* GeoCodeError.swift in Sources */,
 				372A06A2246779AA001EC163 /* LoginProtocols.swift in Sources */,
 				374276A824678A6C00E2A635 /* Constants.swift in Sources */,
 			);
