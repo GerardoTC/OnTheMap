@@ -41,8 +41,8 @@ extension MapViewController: RefreshableViewController {
 
 extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        guard let view = mapView.dequeueReusableAnnotationView(withIdentifier: "IdentifierAnnotation") as? MKMarkerAnnotationView else {
-            let newView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "IdentifierAnnotation")
+        guard let view = mapView.dequeueReusableAnnotationView(withIdentifier: MapViewConstants.annotationId) as? MKMarkerAnnotationView else {
+            let newView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: MapViewConstants.annotationId)
             newView.canShowCallout = true
             newView.calloutOffset = CGPoint(x: -1, y: 1)
             newView.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)

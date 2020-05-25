@@ -42,7 +42,7 @@ extension TabsViewController: TabsViewProtocol {
                                      addPin: #selector(addNewPin),
                                      refresh: #selector(refreshView),
                                      logout: #selector(logout))
-        navigationItem.title = "On The Map"
+        navigationItem.title = TabsViewConstants.title
     }
     
     

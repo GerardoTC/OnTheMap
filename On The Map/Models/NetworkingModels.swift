@@ -22,11 +22,11 @@ enum DataError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .noDataError:
-            return "No data returned verify your connection"
+            return DataErrorConstants.noData
         case let .genericError(desc, _):
             return desc
         case .unknown:
-            return "Something went wrong pelase try again"
+            return DataErrorConstants.unknown
         }
     }
 }

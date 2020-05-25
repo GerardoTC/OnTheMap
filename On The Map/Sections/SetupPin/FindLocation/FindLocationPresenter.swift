@@ -20,21 +20,21 @@ class FindLocationPresenter: FindLocationPresenterProtocol {
 
     func updateUserInfo(locationText: String, linkText: String) {
         guard !locationText.isEmpty else {
-            view.showAlertError(text: "Location text is empty please enter a valid text")
+            view.showAlertError(text: FindLocationConstants.locationTextEmpty)
             return
         }
         guard !linkText.isEmpty else{
-            view.showAlertError(text: "Link text is empty please enter a valid text")
+            view.showAlertError(text: FindLocationConstants.linkTextEmpty)
             return
         }
         guard let url = URL(string: linkText), UIApplication.shared.canOpenURL(url) else {
-            view.showAlertError(text: "The Link provided can't be handled please try with a different one")
+            view.showAlertError(text: FindLocationConstants.wrongLink)
             return
         }
         interactor.fetchLocationWith(text: locationText) { [unowned self] (result) in
             switch result {
             case .failure(_):
-                self.view.showAlertError(text: "The location could'nt be founded please add more information to the location field")
+                self.view.showAlertError(text: FindLocationConstants.wrongLocation)
             case .success(let location):
                 let student = StudentLocation(uniqueKey: StudentAuthInfo.uniqueKey,
                                               firstName: StudentAuthInfo.firstName,

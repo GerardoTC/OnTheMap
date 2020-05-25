@@ -17,13 +17,13 @@ protocol ViewControllersFactoryProtocol {
     func createMapView() -> MapViewController?
     func createMainScreen() -> UIViewController?
     func createAddPinFlow() -> UINavigationController?
-    func createFindMapLocationView(studentLocation: StudentLocation, navigation: UINavigationController) -> UIViewController?
+    func createFindMapLocationView(studentLocation: StudentLocation, navigation: UINavigationController) -> FindMapLocationViewController?
 }
 
 struct ViewControllersFactory: ViewControllersFactoryProtocol {
     
     func createLoginView() -> LoginViewController? {
-        let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController")  as? LoginViewController
+        let loginVC: LoginViewController? = createFromStoryBoard(identifier: ViewsConstants.vcs.login)
         let presenter = LoginPresenter()
         let interactor = LoginInteractor()
         let router = LoginRouter()
@@ -38,14 +38,14 @@ struct ViewControllersFactory: ViewControllersFactoryProtocol {
     
     
     func createRootNavView() -> UINavigationController? {
-        let rootNav: UINavigationController? = createFromStoryBoard(identifier: "RootNavController")
+        let rootNav: UINavigationController? = createFromStoryBoard(identifier: ViewsConstants.vcs.rootnav)
         rootNav?.modalPresentationStyle = .fullScreen
         rootNav?.modalTransitionStyle = .crossDissolve
         return rootNav
     }
     
     func createTabsView() -> TabsViewController? {
-        let tabBarVC: TabsViewController? = createFromStoryBoard(identifier: "TabsViewController")
+        let tabBarVC: TabsViewController? = createFromStoryBoard(identifier: ViewsConstants.vcs.tabsvc)
         let router = TabsRouter()
         router.baseViewController = tabBarVC
         router.viewFactory = self
@@ -58,7 +58,7 @@ struct ViewControllersFactory: ViewControllersFactoryProtocol {
     }
     
     func createListView() -> LocationListViewController? {
-        let locationList: LocationListViewController? = createFromStoryBoard(identifier: "LocationListViewController")
+        let locationList: LocationListViewController? = createFromStoryBoard(identifier: ViewsConstants.vcs.locationlist)
         let presenter = LocationListPresenter()
         let router = LocationListRouter()
         let interactor = LocationListInteractor()
@@ -70,7 +70,7 @@ struct ViewControllersFactory: ViewControllersFactoryProtocol {
     }
     
     func createMapView() -> MapViewController? {
-        let mapView: MapViewController? = createFromStoryBoard(identifier: "MapViewController")
+        let mapView: MapViewController? = createFromStoryBoard(identifier: ViewsConstants.vcs.mapView)
         let presenter = MapPresenter()
         let interactor = MapInteractor()
         let router = MapRouter()
@@ -81,7 +81,7 @@ struct ViewControllersFactory: ViewControllersFactoryProtocol {
         return mapView
     }
     
-    func createFromStoryBoard<T>(storyBoardName: String = "Main", bundle: Bundle? = nil, identifier: String) -> T? {
+    func createFromStoryBoard<T>(storyBoardName: String = ViewsConstants.storyBoards.main, bundle: Bundle? = nil, identifier: String) -> T? {
         guard let viewCreated = UIStoryboard(name: storyBoardName, bundle: bundle).instantiateViewController(withIdentifier: identifier) as? T else {
             return nil
         }
@@ -93,25 +93,25 @@ struct ViewControllersFactory: ViewControllersFactoryProtocol {
             let rootnavBar = createRootNavView(),
             let mapViewController = createMapView(),
             let listViewController = createListView() else {
-            return nil
+                return nil
         }
         rootnavBar.viewControllers = [tabView]
         tabView.viewControllers = [mapViewController, listViewController]
-        mapViewController.tabBarItem.selectedImage = UIImage(named: "mapview_selected_icon")
-        mapViewController.tabBarItem.image = UIImage(named: "mapview_deselected_icon")
-        listViewController.tabBarItem.selectedImage = UIImage(named: "listview-selected_icon")
-        listViewController.tabBarItem.image = UIImage(named: "listview-deselected_icon")
+        mapViewController.tabBarItem.selectedImage = ImagesConstants.mapViewSelected
+        mapViewController.tabBarItem.image = ImagesConstants.mapViewDeselected
+        listViewController.tabBarItem.selectedImage = ImagesConstants.listViewSelected
+        listViewController.tabBarItem.image = ImagesConstants.listViewDeselected
         return rootnavBar
     }
     
     func createAddPinFlow() -> UINavigationController? {
-        guard let addPinVC: FindLocationViewController = createFromStoryBoard(storyBoardName: "SetupPin",
-                                                                     identifier: "FindLocationViewController") else {
-                                                                        return nil
+        guard let addPinVC: FindLocationViewController = createFromStoryBoard(storyBoardName: ViewsConstants.storyBoards.setupPin,
+                                                                              identifier: ViewsConstants.vcs.findLoc) else {
+                                                                                return nil
         }
         
-        let nav: UINavigationController? = createFromStoryBoard(storyBoardName: "SetupPin",
-                                                                identifier: "FindLocationNav")
+        let nav: UINavigationController? = createFromStoryBoard(storyBoardName: ViewsConstants.storyBoards.setupPin,
+                                                                identifier: ViewsConstants.vcs.findLocNav)
         let presenter = FindLocationPresenter()
         let interactor = FindLocationInteractor()
         let router = FindLocationRouter()
@@ -125,8 +125,8 @@ struct ViewControllersFactory: ViewControllersFactoryProtocol {
         return nav
     }
     
-    func createFindMapLocationView(studentLocation: StudentLocation, navigation: UINavigationController) -> UIViewController? {
-        guard let findMapLocVC: FindMapLocationViewController = createFromStoryBoard(storyBoardName: "SetupPin", bundle: nil, identifier: "FindMapLocationViewController") else {
+    func createFindMapLocationView(studentLocation: StudentLocation, navigation: UINavigationController) -> FindMapLocationViewController? {
+        guard let findMapLocVC: FindMapLocationViewController = createFromStoryBoard(storyBoardName: ViewsConstants.storyBoards.setupPin, bundle: nil, identifier: ViewsConstants.vcs.findMapLoc) else {
             return nil
         }
         let presenter = FindMapLocationPresenter()

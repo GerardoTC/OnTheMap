@@ -17,7 +17,7 @@ class LocationListPresenter: LocationListPresenterProtocol {
     
     func viewDidLoad() {
         view.updateLoading(hide: false)
-        interactor.getLocations(limit: 100) { (result) in
+        interactor.getLocations(limit: LocationListConstants.limit) { (result) in
             self.view.updateLoading(hide: true)
             switch result {
             case .failure(let error):
@@ -50,6 +50,10 @@ class LocationListPresenter: LocationListPresenterProtocol {
             let urlString = pinAnotations?[index].subtitle,
             let url = URL(string: urlString),
             UIApplication.shared.canOpenURL(url) else {
+                
+                view.showAlertError(text: LocationListConstants.invalidUrl
+                                    + (pinAnotations?[index].title ?? LocationListConstants.pinText)
+                                    + LocationListConstants.invalidLink)
                 return
         }
         router.routeTo(url: url)

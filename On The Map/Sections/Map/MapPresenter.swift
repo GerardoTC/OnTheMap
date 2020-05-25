@@ -17,7 +17,7 @@ class MapPresenter: MapPresenterProtocol {
     
     func viewDidLoad() {
         view.updateLoading(hide: false)
-        interactor.getLocations(limit: 100) { [weak self](result) in
+        interactor.getLocations(limit: MapViewConstants.limit) { [weak self](result) in
             self?.view.updateLoading(hide: true)
             switch result {
             case .success(let pins):
@@ -33,7 +33,10 @@ class MapPresenter: MapPresenterProtocol {
             let urlString = subtitle,
             let url = URL(string: urlString),
             UIApplication.shared.canOpenURL(url) else {
-                self.view.showAlertError(text: "Invalid Url found, sorry but \((annotation.title ?? String()) ?? "the pin") has an invalid link")
+                let annotationString = (annotation.title ?? String()) ?? MapViewConstants.pinText
+                self.view.showAlertError(text: MapViewConstants.invalidUrl
+                                            + annotationString
+                                            + MapViewConstants.invalidLink)
             return
         }
         router.routeTo(url: url)

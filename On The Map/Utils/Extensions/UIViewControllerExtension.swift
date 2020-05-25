@@ -21,13 +21,13 @@ extension UIViewController {
      }
     
     func showAlertError(text: String) {
-        let alert = UIAlertController(title: "Oops...", message: text, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        let alert = UIAlertController(title: ExtensionConstants.oops, message: text, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: ExtensionConstants.ok, style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
     func addCancelButton() {
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel",
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: ExtensionConstants.cancel,
                                                                  style: .plain,
                                                                  target: target,
                                                                  action: #selector(dismissView))

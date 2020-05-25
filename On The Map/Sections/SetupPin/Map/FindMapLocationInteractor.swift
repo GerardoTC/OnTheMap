@@ -23,7 +23,7 @@ class FindMapLocationInteractor: FindMapLocationInteractorProtocol {
         
         let parse: (Data) throws -> String = { data in
             let dict = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? NSDictionary
-            guard let objectId: String = dict?["objectId"] as? String else {
+            guard let objectId: String = dict?[DictionaryIds.objectId] as? String else {
                 throw DataError.noDataError
             }
             return objectId
@@ -50,7 +50,7 @@ class FindMapLocationInteractor: FindMapLocationInteractorProtocol {
     func updateStudentInfo(_ studentInfo: StudentLocation, completion: @escaping (Result<Void, Error>) -> Void) {
         let parse: (Data) throws -> String = { data in
              let dict = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? NSDictionary
-             guard let updated =  dict?["updatedAt"] as? String else {
+            guard let updated =  dict?[DictionaryIds.updatedAt] as? String else {
                  throw DataError.noDataError
              }
              return updated

@@ -16,6 +16,7 @@ class OTMAPIClient {
         case publicUserData(key: String)
         case postStudentLocation
         case updateStudentLocation(objectId: String)
+        case signUp
         var stringValue: String {
                switch self {
                case .session:
@@ -28,6 +29,8 @@ class OTMAPIClient {
                 return OTMAPIClient.Endpoints.base + "/StudentLocation/\(key)"
                case .postStudentLocation:
                 return OTMAPIClient.Endpoints.base + "/StudentLocation"
+               case .signUp:
+                return "https://auth.udacity.com/sign-up"
                }
         }
         
@@ -45,9 +48,11 @@ class OTMAPIClient {
     
     class func postRequest<A>(resource: Resource<A>, offsetData: Bool = false, completion: @escaping (Result<A, Error>) -> Void) {
         var request = URLRequest(url: resource.url)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = ClientConstants.httpMethod.post
+        request.addValue(ClientConstants.requestContent.applicationJson,
+                         forHTTPHeaderField: ClientConstants.requestContent.accept)
+        request.addValue(ClientConstants.requestContent.applicationJson,
+                         forHTTPHeaderField: ClientConstants.requestContent.contentType)
         request.httpBody = try? resource.body?()
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
@@ -76,8 +81,9 @@ class OTMAPIClient {
     
     class func putRequest<A>(resource: Resource<A>, offsetData: Bool = false, completion: @escaping (Result<A, Error>) -> Void) {
         var request = URLRequest(url: resource.url)
-        request.httpMethod = "PUT"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = ClientConstants.httpMethod.put
+        request.addValue(ClientConstants.requestContent.applicationJson,
+                         forHTTPHeaderField: ClientConstants.requestContent.contentType)
         request.httpBody = try? resource.body?()
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
@@ -132,14 +138,14 @@ class OTMAPIClient {
     
     class func deleteSession(completion: @escaping (SessionRoot?) -> Void) {
         var request = URLRequest(url: Endpoints.session.url)
-        request.httpMethod = "DELETE"
+        request.httpMethod = ClientConstants.httpMethod.delete
         var xsrfCookie: HTTPCookie? = nil
         let sharedCookieStorage = HTTPCookieStorage.shared
         for cookie in sharedCookieStorage.cookies! {
-            if cookie.name == "XSRF-TOKEN" { xsrfCookie = cookie }
+            if cookie.name ==  ClientConstants.requestContent.xsrf { xsrfCookie = cookie }
         }
         if let xsrfCookie = xsrfCookie {
-            request.setValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-TOKEN")
+            request.setValue(xsrfCookie.value, forHTTPHeaderField: ClientConstants.requestContent.xxsrf)
         }
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             DispatchQueue.main.async {

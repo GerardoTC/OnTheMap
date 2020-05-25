@@ -42,10 +42,10 @@ extension LocationListViewController: UITableViewDataSource {
         return presenter.numberOfRows()
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "LocationViewCell") else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: LocationListConstants.identifier) else {
             return UITableViewCell()
         }
-        cell.imageView?.image = UIImage(named: "pin_icon")
+        cell.imageView?.image = ImagesConstants.pinImage
         cell.textLabel?.text = presenter.textForLocation(index: indexPath.row)
         
         cell.detailTextLabel?.text = presenter.textForUrl(index: indexPath.row)

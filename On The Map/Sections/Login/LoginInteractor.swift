@@ -29,8 +29,8 @@ class LoginInteractor: LoginInteractorProtocol {
         OTMAPIClient.getRequest(resource: resource, offsetData: true) { (result) in
             switch result {
             case .success(let dict):
-                StudentAuthInfo.firstName = dict["first_name"] as? String ?? String()
-                StudentAuthInfo.lastName = dict["last_name"] as? String ?? String()
+                StudentAuthInfo.firstName = dict[DictionaryIds.firstName] as? String ?? String()
+                StudentAuthInfo.lastName = dict[DictionaryIds.lastName] as? String ?? String()
             case .failure(_):
                 break
             }

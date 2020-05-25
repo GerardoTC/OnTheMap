@@ -32,6 +32,6 @@ class FindLocationViewController: UIViewController {
 extension FindLocationViewController: FindLocationViewProtocol {
     func setupView() {
         addCancelButton()
-        self.navigationItem.title = "Add Location"
+        self.navigationItem.title = FindLocationConstants.title
     }
 }
