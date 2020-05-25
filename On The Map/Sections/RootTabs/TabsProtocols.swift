@@ -27,6 +27,10 @@ protocol TabsViewProtocol: class {
     func setUpView()
 }
 
+protocol TabsInteractorProtocol: class {
+    func logout(completion: @escaping (Bool) -> Void) 
+}
+
 protocol RefreshableViewController {
     func refreshView()
 }

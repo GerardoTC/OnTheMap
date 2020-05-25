@@ -23,3 +23,6 @@ struct SessionInfo: Codable {
     var expiration: String
 }
 
+struct SessionRoot: Codable {
+    var session: SessionInfo
+}

@@ -11,6 +11,7 @@ import Foundation
 class TabsPresenter: TabsPresenterProtocol {
     weak var view: TabsViewProtocol!
     var router: TabsRouterProtocol!
+    var interactor: TabsInteractor!
     func viewDidLoad() {
         view.setUpView()
     }
@@ -20,7 +21,10 @@ class TabsPresenter: TabsPresenterProtocol {
     }
     
     func logoutTapped() {
-        router.routeToLogout()
+        interactor.logout { [unowned self ] (_) in
+            self.router.routeToLogout()
+        }
+        
     }
     
     func refreshTapped() {

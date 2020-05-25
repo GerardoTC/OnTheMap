@@ -26,6 +26,7 @@
 		374FD1EE247B3C75004933DF /* FindMapLocationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374FD1ED247B3C75004933DF /* FindMapLocationPresenter.swift */; };
 		374FD1F0247B3C80004933DF /* FindMapLocationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374FD1EF247B3C80004933DF /* FindMapLocationRouter.swift */; };
 		374FD1F2247B3C8A004933DF /* FindMapLocationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374FD1F1247B3C8A004933DF /* FindMapLocationInteractor.swift */; };
+		374FD1F4247B6CA1004933DF /* TabsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374FD1F3247B6CA1004933DF /* TabsInteractor.swift */; };
 		37BBEE0024747F7500DD68FB /* SetupPin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37BBEDFF24747F7500DD68FB /* SetupPin.storyboard */; };
 		37BBEE032474951000DD68FB /* FindLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BBEE022474951000DD68FB /* FindLocationViewController.swift */; };
 		37BBEE052474960C00DD68FB /* FindLocationProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BBEE042474960C00DD68FB /* FindLocationProtocols.swift */; };
@@ -79,6 +80,7 @@
 		374FD1ED247B3C75004933DF /* FindMapLocationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMapLocationPresenter.swift; sourceTree = "<group>"; };
 		374FD1EF247B3C80004933DF /* FindMapLocationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMapLocationRouter.swift; sourceTree = "<group>"; };
 		374FD1F1247B3C8A004933DF /* FindMapLocationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMapLocationInteractor.swift; sourceTree = "<group>"; };
+		374FD1F3247B6CA1004933DF /* TabsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsInteractor.swift; sourceTree = "<group>"; };
 		37BBEDFF24747F7500DD68FB /* SetupPin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetupPin.storyboard; sourceTree = "<group>"; };
 		37BBEE022474951000DD68FB /* FindLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindLocationViewController.swift; sourceTree = "<group>"; };
 		37BBEE042474960C00DD68FB /* FindLocationProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindLocationProtocols.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				37E790ED24704B1E00965E0D /* TabsPresenter.swift */,
 				37E790EF24704B2700965E0D /* TabsRouter.swift */,
 				37E790F124704B3C00965E0D /* TabsProtocols.swift */,
+				374FD1F3247B6CA1004933DF /* TabsInteractor.swift */,
 			);
 			path = RootTabs;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				37BBEE052474960C00DD68FB /* FindLocationProtocols.swift in Sources */,
 				37C4823F24795EA300246883 /* GeoCodeError.swift in Sources */,
 				37C4824324796BC500246883 /* FindMapLocationViewController.swift in Sources */,
+				374FD1F4247B6CA1004933DF /* TabsInteractor.swift in Sources */,
 				372A06A2246779AA001EC163 /* LoginProtocols.swift in Sources */,
 				374FD1F0247B3C80004933DF /* FindMapLocationRouter.swift in Sources */,
 				374276A824678A6C00E2A635 /* Constants.swift in Sources */,

@@ -129,4 +129,30 @@ class OTMAPIClient {
         task.resume()
         return task
     }
+    
+    class func deleteSession(completion: @escaping (SessionRoot?) -> Void) {
+        var request = URLRequest(url: Endpoints.session.url)
+        request.httpMethod = "DELETE"
+        var xsrfCookie: HTTPCookie? = nil
+        let sharedCookieStorage = HTTPCookieStorage.shared
+        for cookie in sharedCookieStorage.cookies! {
+            if cookie.name == "XSRF-TOKEN" { xsrfCookie = cookie }
+        }
+        if let xsrfCookie = xsrfCookie {
+            request.setValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-TOKEN")
+        }
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            DispatchQueue.main.async {
+                guard let data = data else {
+                    completion(nil)
+                    return
+                }
+                let newData = data.subdata(in: 5..<data.count)
+                let resultSession = try? JSONDecoder().decode(SessionRoot.self, from: newData)
+                completion(resultSession)
+            }
+            
+        }
+        task.resume()
+    }
 }

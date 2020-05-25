@@ -52,6 +52,7 @@ struct ViewControllersFactory: ViewControllersFactoryProtocol {
         let presenter = TabsPresenter()
         presenter.view = tabBarVC
         presenter.router = router
+        presenter.interactor = TabsInteractor()
         tabBarVC?.presenter = presenter
         return tabBarVC
     }
