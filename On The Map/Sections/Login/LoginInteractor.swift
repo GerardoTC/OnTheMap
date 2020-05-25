@@ -14,8 +14,9 @@ class LoginInteractor: LoginInteractorProtocol {
         OTMAPIClient.postRequest(resource: resource, completion: result)
     }
     
-    func updateStudentInfo(_ key: String) {
+    func updateStudentInfo(_ key: String, id: String) {
         StudentAuthInfo.uniqueKey = key
+        StudentAuthInfo.id = id
         let parse: (Data) throws -> NSDictionary = { data in
             return try JSONSerialization.jsonObject(with: data,
                                                     options: .allowFragments) as? NSDictionary ?? [:]

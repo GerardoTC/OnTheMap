@@ -7,10 +7,16 @@
 //
 
 import Foundation
-
+import UIKit
 class FindLocationRouter: FindLocationRouterProtocol {
+    var navigation: UINavigationController!
+    var viewFactory: ViewControllersFactoryProtocol?
+    
     func routeToMap(studentInfo: StudentLocation) {
-        print(studentInfo)
+        guard let vc = viewFactory?.createFindMapLocationView(studentLocation: studentInfo ,navigation: navigation) else {
+            return
+        }
+        navigation.pushViewController(vc, animated: true)
     }
 
 }

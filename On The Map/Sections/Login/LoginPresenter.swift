@@ -38,7 +38,7 @@ class LoginPresenter: LoginPresenterProtocol {
         switch result {
         case .success(let response):
             view.clearTextFields()
-            interactor.updateStudentInfo(response.account.key)
+            interactor.updateStudentInfo(response.account.key, id: response.session.id)
             router.routeToMainScreen()
         case .failure(let error):
             view.updateErrorText(text: error.localizedDescription)

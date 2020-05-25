@@ -11,10 +11,12 @@ import MapKit
 
 protocol FindLocationPresenterProtocol: class {
     func updateUserInfo(locationText: String, linkText: String)
+    func viewDidLoad()
 }
 
 protocol FindLocationViewProtocol: class {
     func showAlertError(text: String)
+    func setupView()
 }
 
 protocol FindLocationInteractorProtocol: class {

@@ -22,6 +22,10 @@
 		374276AD246793D400E2A635 /* OTMAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374276AC246793D400E2A635 /* OTMAPIClient.swift */; };
 		374276B0246795F200E2A635 /* LoginRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374276AF246795F200E2A635 /* LoginRequests.swift */; };
 		374276B224679D8000E2A635 /* NetworkingModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374276B124679D8000E2A635 /* NetworkingModels.swift */; };
+		374FD1EC247B3C15004933DF /* FindMapLocationProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374FD1EB247B3C15004933DF /* FindMapLocationProtocols.swift */; };
+		374FD1EE247B3C75004933DF /* FindMapLocationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374FD1ED247B3C75004933DF /* FindMapLocationPresenter.swift */; };
+		374FD1F0247B3C80004933DF /* FindMapLocationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374FD1EF247B3C80004933DF /* FindMapLocationRouter.swift */; };
+		374FD1F2247B3C8A004933DF /* FindMapLocationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374FD1F1247B3C8A004933DF /* FindMapLocationInteractor.swift */; };
 		37BBEE0024747F7500DD68FB /* SetupPin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37BBEDFF24747F7500DD68FB /* SetupPin.storyboard */; };
 		37BBEE032474951000DD68FB /* FindLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BBEE022474951000DD68FB /* FindLocationViewController.swift */; };
 		37BBEE052474960C00DD68FB /* FindLocationProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BBEE042474960C00DD68FB /* FindLocationProtocols.swift */; };
@@ -30,6 +34,7 @@
 		37BBEE1424749CAA00DD68FB /* FindLocationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BBEE1324749CAA00DD68FB /* FindLocationPresenter.swift */; };
 		37BBEE162474ACD900DD68FB /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BBEE152474ACD900DD68FB /* StudentLocation.swift */; };
 		37C4823F24795EA300246883 /* GeoCodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C4823E24795EA300246883 /* GeoCodeError.swift */; };
+		37C4824324796BC500246883 /* FindMapLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C4824224796BC500246883 /* FindMapLocationViewController.swift */; };
 		37E790E924703D3800965E0D /* UINavigationItemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E790E824703D3800965E0D /* UINavigationItemExtension.swift */; };
 		37E790EC2470401700965E0D /* TabsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E790EB2470401700965E0D /* TabsViewController.swift */; };
 		37E790EE24704B1E00965E0D /* TabsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E790ED24704B1E00965E0D /* TabsPresenter.swift */; };
@@ -70,6 +75,10 @@
 		374276AC246793D400E2A635 /* OTMAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTMAPIClient.swift; sourceTree = "<group>"; };
 		374276AF246795F200E2A635 /* LoginRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequests.swift; sourceTree = "<group>"; };
 		374276B124679D8000E2A635 /* NetworkingModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingModels.swift; sourceTree = "<group>"; };
+		374FD1EB247B3C15004933DF /* FindMapLocationProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMapLocationProtocols.swift; sourceTree = "<group>"; };
+		374FD1ED247B3C75004933DF /* FindMapLocationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMapLocationPresenter.swift; sourceTree = "<group>"; };
+		374FD1EF247B3C80004933DF /* FindMapLocationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMapLocationRouter.swift; sourceTree = "<group>"; };
+		374FD1F1247B3C8A004933DF /* FindMapLocationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMapLocationInteractor.swift; sourceTree = "<group>"; };
 		37BBEDFF24747F7500DD68FB /* SetupPin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetupPin.storyboard; sourceTree = "<group>"; };
 		37BBEE022474951000DD68FB /* FindLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindLocationViewController.swift; sourceTree = "<group>"; };
 		37BBEE042474960C00DD68FB /* FindLocationProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindLocationProtocols.swift; sourceTree = "<group>"; };
@@ -78,6 +87,7 @@
 		37BBEE1324749CAA00DD68FB /* FindLocationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindLocationPresenter.swift; sourceTree = "<group>"; };
 		37BBEE152474ACD900DD68FB /* StudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
 		37C4823E24795EA300246883 /* GeoCodeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoCodeError.swift; sourceTree = "<group>"; };
+		37C4824224796BC500246883 /* FindMapLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMapLocationViewController.swift; sourceTree = "<group>"; };
 		37E790E824703D3800965E0D /* UINavigationItemExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationItemExtension.swift; sourceTree = "<group>"; };
 		37E790EB2470401700965E0D /* TabsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsViewController.swift; sourceTree = "<group>"; };
 		37E790ED24704B1E00965E0D /* TabsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsPresenter.swift; sourceTree = "<group>"; };
@@ -218,6 +228,11 @@
 		37BBEE062474962600DD68FB /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				37C4824224796BC500246883 /* FindMapLocationViewController.swift */,
+				374FD1EB247B3C15004933DF /* FindMapLocationProtocols.swift */,
+				374FD1ED247B3C75004933DF /* FindMapLocationPresenter.swift */,
+				374FD1EF247B3C80004933DF /* FindMapLocationRouter.swift */,
+				374FD1F1247B3C8A004933DF /* FindMapLocationInteractor.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -367,6 +382,7 @@
 				37E79104247071F000965E0D /* UIViewControllerExtension.swift in Sources */,
 				374276AD246793D400E2A635 /* OTMAPIClient.swift in Sources */,
 				37E790FE24706E9800965E0D /* MapPresenter.swift in Sources */,
+				374FD1EE247B3C75004933DF /* FindMapLocationPresenter.swift in Sources */,
 				37E7911D2471C65700965E0D /* LocationListRouter.swift in Sources */,
 				37E7910024706F5700965E0D /* MapRouter.swift in Sources */,
 				37E791212471C68400965E0D /* LocationListInteractor.swift in Sources */,
@@ -394,12 +410,16 @@
 				37E790F52470553D00965E0D /* MapViewController.swift in Sources */,
 				37E7911F2471C66E00965E0D /* LocationListProtocols.swift in Sources */,
 				372A068A24676746001EC163 /* AppDelegate.swift in Sources */,
+				374FD1F2247B3C8A004933DF /* FindMapLocationInteractor.swift in Sources */,
 				372A068C24676746001EC163 /* SceneDelegate.swift in Sources */,
 				37BBEE032474951000DD68FB /* FindLocationViewController.swift in Sources */,
+				374FD1EC247B3C15004933DF /* FindMapLocationProtocols.swift in Sources */,
 				37E7911224717BFF00965E0D /* StudentInfo.swift in Sources */,
 				37BBEE052474960C00DD68FB /* FindLocationProtocols.swift in Sources */,
 				37C4823F24795EA300246883 /* GeoCodeError.swift in Sources */,
+				37C4824324796BC500246883 /* FindMapLocationViewController.swift in Sources */,
 				372A06A2246779AA001EC163 /* LoginProtocols.swift in Sources */,
+				374FD1F0247B3C80004933DF /* FindMapLocationRouter.swift in Sources */,
 				374276A824678A6C00E2A635 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

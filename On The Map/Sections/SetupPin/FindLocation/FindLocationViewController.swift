@@ -16,7 +16,7 @@ class FindLocationViewController: UIViewController {
     var presenter: FindLocationPresenterProtocol!
     override func viewDidLoad() {
         super.viewDidLoad()
-        addCancelButton()
+        presenter.viewDidLoad()
     }
     
     @IBAction func findLocationTapped() {
@@ -29,4 +29,9 @@ class FindLocationViewController: UIViewController {
     }
 }
 
-extension FindLocationViewController: FindLocationViewProtocol { }
+extension FindLocationViewController: FindLocationViewProtocol {
+    func setupView() {
+        addCancelButton()
+        self.navigationItem.title = "Add Location"
+    }
+}

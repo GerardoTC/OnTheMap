@@ -48,5 +48,9 @@ class FindLocationPresenter: FindLocationPresenterProtocol {
         }
     }
     
+    func viewDidLoad() {
+        view.setupView()
+    }
+    
     
 }

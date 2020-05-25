@@ -16,7 +16,8 @@ protocol ViewControllersFactoryProtocol {
     func createListView() -> LocationListViewController?
     func createMapView() -> MapViewController?
     func createMainScreen() -> UIViewController?
-    func createAddPinFlow() -> UINavigationController? 
+    func createAddPinFlow() -> UINavigationController?
+    func createFindMapLocationView(studentLocation: StudentLocation, navigation: UINavigationController) -> UIViewController?
 }
 
 struct ViewControllersFactory: ViewControllersFactoryProtocol {
@@ -113,11 +114,29 @@ struct ViewControllersFactory: ViewControllersFactoryProtocol {
         let presenter = FindLocationPresenter()
         let interactor = FindLocationInteractor()
         let router = FindLocationRouter()
+        router.navigation = nav
         addPinVC.presenter = presenter
         presenter.view = addPinVC
         presenter.interactor = interactor
         presenter.router = router
+        router.viewFactory = self
         nav?.viewControllers = [addPinVC]
         return nav
+    }
+    
+    func createFindMapLocationView(studentLocation: StudentLocation, navigation: UINavigationController) -> UIViewController? {
+        guard let findMapLocVC: FindMapLocationViewController = createFromStoryBoard(storyBoardName: "SetupPin", bundle: nil, identifier: "FindMapLocationViewController") else {
+            return nil
+        }
+        let presenter = FindMapLocationPresenter()
+        let interactor = FindMapLocationInteractor()
+        let router = FindMapLocationRouter()
+        findMapLocVC.presenter = presenter
+        router.navigationController = navigation
+        presenter.view = findMapLocVC
+        presenter.interactor = interactor
+        presenter.router = router
+        presenter.studentLocation = studentLocation
+        return findMapLocVC
     }
 }
