@@ -18,10 +18,13 @@ class FindMapLocationPresenter: FindMapLocationPresenterProtocol {
         let location = CLLocationCoordinate2D(latitude: studentLocation.latitude, longitude: studentLocation.longitude)
         let annotation = PinAnnotation(coordinate: location, title: studentLocation.mapString)
         view.addLocation(location: annotation)
+        view.updateLoading(hide: true)
     }
     
     func finishTapped() {
+        view.updateLoading(hide: false)
         interactor.updateInfo(studentInfo: studentLocation) { [unowned self] result in
+            self.view.updateLoading(hide: true)
             switch result {
             case .success(_):
                 self.router.dismissView()

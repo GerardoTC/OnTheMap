@@ -12,6 +12,8 @@ import MapKit
 class FindMapLocationViewController: UIViewController {
     @IBOutlet weak var finishButton: UIButton!
     @IBOutlet weak var map: MKMapView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     var presenter: FindMapLocationPresenterProtocol!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +29,10 @@ extension FindMapLocationViewController: FindMapLocationViewProtocol {
     func addLocation(location: MKAnnotation) {
         map.addAnnotation(location)
         map.centerToLocation(location.coordinate)
+    }
+    func updateLoading(hide: Bool) {
+        activityIndicator.isHidden = hide
+        finishButton.isEnabled = hide
     }
 }
 

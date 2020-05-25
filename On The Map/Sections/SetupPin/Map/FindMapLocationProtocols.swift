@@ -20,10 +20,11 @@ protocol FindMapLocationPresenterProtocol: class {
 protocol FindMapLocationViewProtocol: class {
     func showAlertError(text: String)
     func addLocation(location: MKAnnotation)
+    func updateLoading(hide: Bool)
 }
 
 protocol FindMapLocationInteractorProtocol: class {
-    func updateInfo(studentInfo: StudentLocation,completion: @escaping (Result<Bool,Error>) -> Void)
+    func updateInfo(studentInfo: StudentLocation,completion: @escaping (Result<Void,Error>) -> Void)
 }
 
 protocol FindMapLocationRouterProtocol: class {

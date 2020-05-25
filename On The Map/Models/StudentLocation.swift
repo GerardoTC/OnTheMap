@@ -20,7 +20,7 @@ struct StudentLocation: Encodable {
 
 class StudentAuthInfo {
     static var uniqueKey: String = String()
-    static var id: String = String()
+    static var objectID: String = String()
     static var firstName: String = String()
     static var lastName: String = String()
 }

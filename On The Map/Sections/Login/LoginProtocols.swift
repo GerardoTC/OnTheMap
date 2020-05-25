@@ -24,7 +24,7 @@ protocol LoginPresenterProtocol: class {
 
 protocol LoginInteractorProtocol: class {
     func loginWith(email: String, password: String, result: @escaping (Result<LoginResponse,Error>) -> Void)
-    func updateStudentInfo(_ key: String, id: String)
+    func updateStudentInfo(_ key: String)
 }
 
 protocol LoginRouterProtocol: class {

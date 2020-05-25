@@ -11,12 +11,11 @@ import Foundation
 class LoginInteractor: LoginInteractorProtocol {
     func loginWith(email: String, password: String, result: @escaping (Result<LoginResponse,Error>) -> Void) {
         let resource = createResource(email: email, password: password)
-        OTMAPIClient.postRequest(resource: resource, completion: result)
+        OTMAPIClient.postRequest(resource: resource,offsetData: true, completion: result)
     }
     
-    func updateStudentInfo(_ key: String, id: String) {
+    func updateStudentInfo(_ key: String) {
         StudentAuthInfo.uniqueKey = key
-        StudentAuthInfo.id = id
         let parse: (Data) throws -> NSDictionary = { data in
             return try JSONSerialization.jsonObject(with: data,
                                                     options: .allowFragments) as? NSDictionary ?? [:]

@@ -14,7 +14,8 @@ class OTMAPIClient {
         case session
         case studentLocation(limit: Int)
         case publicUserData(key: String)
-        case updateStudentLocation(key: String)
+        case postStudentLocation
+        case updateStudentLocation(objectId: String)
         var stringValue: String {
                switch self {
                case .session:
@@ -25,6 +26,8 @@ class OTMAPIClient {
                 return OTMAPIClient.Endpoints.base + "/users/\(key)"
                case .updateStudentLocation(let key) :
                 return OTMAPIClient.Endpoints.base + "/StudentLocation/\(key)"
+               case .postStudentLocation:
+                return OTMAPIClient.Endpoints.base + "/StudentLocation"
                }
         }
         
@@ -40,7 +43,7 @@ class OTMAPIClient {
         return errorParse
     }
     
-    class func postRequest<A>(resource: Resource<A>, completion: @escaping (Result<A, Error>) -> Void) {
+    class func postRequest<A>(resource: Resource<A>, offsetData: Bool = false, completion: @escaping (Result<A, Error>) -> Void) {
         var request = URLRequest(url: resource.url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
@@ -51,8 +54,10 @@ class OTMAPIClient {
             DispatchQueue.main.async {
                 completion(
                     Result {
-                        guard let data = data else { throw DataError.noDataError}
-                        let newData = data.subdata(in: 5..<data.count)
+                        guard var newData = data else { throw DataError.noDataError }
+                        if offsetData {
+                            newData = newData.subdata(in: 5..<newData.count)
+                        }
                         if let dataParsed = try? resource.parse(newData) {
                             return dataParsed
                         } else {
